@@ -2,125 +2,437 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Anish Abraham - Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anish Abraham - Senior Server Administrator</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #0074d9;
+            --text-dark: #2c3e50;
+            --text-light: #555;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            margin: 40px;
-            background-color: #f9f9f9;
-            color: #333;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            padding: 20px;
         }
-        h1, h2 {
-            color: #005a9c;
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
-        .contact {
-            font-size: 0.95em;
-            margin-bottom: 20px;
-        }
-        .section {
+
+        /* Header Section */
+        .header {
+            text-align: center;
             margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-color);
         }
-        ul {
-            padding-left: 20px;
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
         }
-        li {
+
+        .title {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            color: var(--text-dark);
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .company {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 15px;
+        }
+
+        .position {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .duration {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95em;
+        }
+
+        .client {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 12px;
+        }
+
+        .skill-category strong {
+            color: var(--primary-color);
+            display: block;
             margin-bottom: 5px;
         }
-        .heading-line {
-            border-bottom: 2px solid #005a9c;
-            margin-bottom: 10px;
+
+        .skill-category p {
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 25px;
+            color: var(--text-light);
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        /* Soft Skills & Competencies */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: var(--bg-light);
+            border-left: 3px solid var(--secondary-color);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--text-dark);
+        }
+
+        /* Achievements */
+        .achievements {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+
+        .achievements strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Certifications & Education */
+        .cert-item, .edu-item {
+            margin-bottom: 12px;
+            padding-left: 15px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Anish Abraham</h1>
+            <div class="title">Senior Server & Infrastructure Administrator</div>
+            <div class="contact">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+918884507437" style="text-decoration: none; color: inherit;">+91-8884507437</a>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:anishabraham031@gmail.com" style="text-decoration: none; color: inherit;">anishabraham031@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Bengaluru, India</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://github.com/Anish031" style="text-decoration: none; color: inherit;">GitHub</a>
+                </div>
+            </div>
+        </div>
 
-    <h1>Anish Abraham</h1>
-    <div class="contact">
-        <p>Windows, VMware, UCS, and Terraform Administrator</p>
-        <p>📞 +91-8884507437 | 📧 anishabraham031@gmail.com</p>
-        <p>📍 Bengaluru, India | 🗓 DOB: 31-08-1990</p>
+        <!-- Professional Summary -->
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p>Seasoned Senior Server Administrator with 15+ years of progressive experience in Windows & VMware infrastructure management, cloud automation, disaster recovery, and enterprise system administration. Proven track record in delivering robust, secure, and scalable infrastructure solutions for Fortune 500 clients. Expert in designing and implementing automation frameworks, optimizing infrastructure performance, and leading successful digital transformation initiatives. Strong background in compliance, security hardening, and mentoring technical teams.</p>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Operating Systems</strong>
+                    <p>Windows Server 2003–2022, Windows 10/11, Windows Client OS, Linux (basic)</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Virtualization</strong>
+                    <p>VMware vSphere, ESXi, vRA, vCenter, Hyper-V, VirtualBox</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Infrastructure</strong>
+                    <p>Cisco UCS Manager, Veritas Volume Manager, IBM Bluemix, OpenStack, Dell EMC</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Automation & Scripting</strong>
+                    <p>PowerShell, Terraform, RunDeck, Ansible, Micro Focus Server Automation</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Monitoring & Observability</strong>
+                    <p>SCOM, Dynatrace, Sitescope, Gomez, Wily, Splunk (basic)</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Security & Directory Services</strong>
+                    <p>Active Directory, ADFS, ADRMS, GPO, CipherTrust, CyberArk, TLS/SSL, IPSec</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Configuration Management</strong>
+                    <p>ServiceNow, SCCM, JIRA, Landesk, BMC Remedy, HPSA, DCA</p>
+                </div>
+                <div class="skill-category">
+                    <strong>CI/CD & Cloud</strong>
+                    <p>Jenkins, GitHub, Azure (AZ-104), AWS (basic), Docker, Git</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="section">
+            <h2>Soft Skills</h2>
+            <div class="tags">
+                <div class="tag">Strategic Communication</div>
+                <div class="tag">Problem-Solving</div>
+                <div class="tag">Deadline-Driven</div>
+                <div class="tag">Team Leadership</div>
+                <div class="tag">Documentation & SOP Writing</div>
+                <div class="tag">Process Optimization</div>
+                <div class="tag">Risk Management</div>
+                <div class="tag">Stakeholder Management</div>
+            </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <div class="section">
+            <h2>Core Competencies</h2>
+            <div class="tags">
+                <div class="tag">Infrastructure Management</div>
+                <div class="tag">Automation & IaC</div>
+                <div class="tag">Disaster Recovery & BCDR</div>
+                <div class="tag">Capacity Planning</div>
+                <div class="tag">Performance Tuning</div>
+                <div class="tag">System Administration</div>
+                <div class="tag">Incident Management</div>
+                <div class="tag">Change Management</div>
+                <div class="tag">Security Hardening</div>
+                <div class="tag">Compliance (ISO, SOC2, NIST)</div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2>Professional Experience</h2>
+
+            <div class="company">Tata Consultancy Services (TCS) | Bengaluru</div>
+            <p class="position">Senior Server Administrator <span class="duration">(Feb 2019 – Present)</span></p>
+            <p class="client">Client: Toronto-Dominion Bank (Global Finance & Operations)</p>
+            <ul>
+                <li>Administered and maintained 500+ Windows Servers (2008–2022) in a multi-tier production environment with 99.9% uptime SLA.</li>
+                <li>Implemented and managed Group Policy Objects (GPO) using Advanced Group Policy Management (AGPM) with CIS/NIST security baselines, improving security posture by 35%.</li>
+                <li>Designed and executed Terraform infrastructure-as-code (IaC) automation for vCPU, vRAM, and storage expansion on vCenter, reducing manual provisioning time by 60%.</li>
+                <li>Managed Cisco UCS configurations, DNS, DHCP, and Remote Desktop Session Host (RDSH) installations across distributed data centers.</li>
+                <li>Orchestrated decommissioning of 200+ physical and virtual servers with zero data loss; validated all CI changes on ServiceNow for compliance.</li>
+                <li>Maintained granular access control for shared folders and enforced NTFS permissions; validated server monitoring via SCOM with 98% alert accuracy.</li>
+                <li>Troubleshot critical BSOD incidents using WinDbg memory dump analysis; managed TLS cipher suite configurations and DLP/CrowdStrike/DCA client updates.</li>
+                <li>Authored comprehensive SOPs and runbooks; mentored 5+ junior administrators and led quarterly knowledge transfer sessions.</li>
+            </ul>
+            <div class="achievements">
+                <strong>Key Achievements:</strong>
+                <ul style="margin: 0;">
+                    <li>Improved security posture with CIS/NIST-aligned configurations, reducing security incidents by 40%.</li>
+                    <li>Automated provisioning workflows using Terraform & UCS Manager, saving 200+ hours annually.</li>
+                    <li>Enhanced server monitoring efficiency through SCOM optimization, reducing alert response time by 50%.</li>
+                    <li>Led successful migration of 150 servers to new VMware cluster with zero downtime.</li>
+                </ul>
+            </div>
+
+            <div class="company" style="margin-top: 25px;">Wipro Technologies | Bengaluru</div>
+            <p class="position">Senior Server Administrator <span class="duration">(Mar 2013 – Jan 2019)</span></p>
+
+            <p class="client" style="margin-top: 15px;">Client: Lloyds Banking Group <span class="duration">(Sep 2015 – Jan 2019)</span></p>
+            <ul>
+                <li>Delivered L2+ server support for 300+ Windows Servers; applied monthly patches via SCCM and HPSA, maintaining 99.7% patch compliance.</li>
+                <li>Diagnosed critical BSOD incidents using WinDbg memory dump analysis and managed hardware issues via Integrated Lights-Out (ILO).</li>
+                <li>Troubleshot complex Windows update errors and driver conflicts; validated change requests and coordinated RCA documentation for post-incident reviews.</li>
+                <li>Reduced server incidents by 25% through proactive monitoring and systematic documentation of lessons learned.</li>
+            </ul>
+
+            <p class="client" style="margin-top: 15px;">Client: US Bank <span class="duration">(Jun 2013 – Aug 2015)</span></p>
+            <ul>
+                <li>Supported global infrastructure for 400+ servers using Gomez, Netcool, Sitescope, and CA Workload Automation monitoring platforms.</li>
+                <li>Analyzed Autosys logs, IIS logs, and syslogs for failure root cause analysis; resolved network and application performance issues.</li>
+                <li>Delivered 24/7 SLA-driven support with response time averaging <30 minutes; maintained 98.5% SLA compliance.</li>
+                <li>Conducted performance tuning initiatives resulting in 20% improvement in system throughput and reduced latency.</li>
+            </ul>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section">
+            <h2>Certifications</h2>
+            <div class="cert-item">
+                <strong>Microsoft Certified: Azure Administrator Associate</strong>
+                <p style="color: var(--text-light); font-size: 0.9em;">Credential ID: AZ-104 | Active</p>
+            </div>
+            <div class="cert-item">
+                <strong>ServiceNow Certified System Administrator</strong>
+                <p style="color: var(--text-light); font-size: 0.9em;">Certified Professional</p>
+            </div>
+            <div class="cert-item">
+                <strong>ITIL Foundation Certification</strong>
+                <p style="color: var(--text-light); font-size: 0.9em;">Incident, Change & Problem Management</p>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2>Education</h2>
+            <div class="edu-item">
+                <strong>Bachelor of Science in Mathematics</strong>
+                <p style="color: var(--text-light); font-size: 0.95em;">Sree Narayana Guru College, Bharathiyar University – 2012</p>
+            </div>
+        </div>
+
+        <!-- Availability -->
+        <div class="section">
+            <h2>Availability & Interests</h2>
+            <p>Immediately available for opportunities in:</p>
+            <div class="tags" style="margin-top: 10px;">
+                <div class="tag">Infrastructure Administration</div>
+                <div class="tag">Cloud Migration (Azure/AWS)</div>
+                <div class="tag">Automation & DevOps</div>
+                <div class="tag">Senior/Lead Admin Roles</div>
+                <div class="tag">Infrastructure Architect</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-light); font-size: 0.9em;">
+            <p>Resume last updated: April 2026 | <a href="https://github.com/Anish031/resume" style="color: var(--primary-color); text-decoration: none;">View on GitHub</a></p>
+        </div>
     </div>
-
-    <div class="section">
-        <h2>Professional Summary</h2>
-        <p>Seasoned Server Administrator with 15+ years of experience in Windows & VMware infrastructure management, automation, disaster recovery, and system administration. Proven success in delivering high-performing solutions using tools like Terraform, vCenter, UCS Manager, and PowerShell. Adept at managing large-scale enterprise systems, troubleshooting complex issues, and implementing ITIL-aligned best practices to ensure optimal uptime and system performance. Microsoft Certified Azure Administrator and ServiceNow Certified System Administrator.</p>
-    </div>
-
-    <div class="section">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Operating Systems:</strong> Windows Server 2003–2022, Windows Client OS</li>
-            <li><strong>Virtualization:</strong> VMware vSphere, ESXi, vRA, VirtualBox</li>
-            <li><strong>Infrastructure:</strong> Cisco UCS Manager, Veritas Volume Manager, IBM Bluemix, OpenStack</li>
-            <li><strong>Automation & Scripting:</strong> PowerShell, Terraform, RunDeck, Micro Focus Server Automation</li>
-            <li><strong>Monitoring:</strong> SCOM, Dynatrace, Sitescope, Gomez, Wily</li>
-            <li><strong>Security:</strong> CipherTrust, CyberArk, TLS/SSL, IPSec, Windows Firewall</li>
-            <li><strong>Directory Services:</strong> Active Directory, ADFS, ADRMS, GPO</li>
-            <li><strong>Tools:</strong> ServiceNow, SCCM, JIRA, Landesk, BMC Remedy, HPSA, DCA</li>
-            <li><strong>CI/CD & DB:</strong> Jenkins, GitHub, Basic SQL</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Soft Skills</h2>
-        <p>Communication | Problem-solving | Deadline-driven | Team Collaboration | Documentation and SOP Writing</p>
-    </div>
-
-    <div class="section">
-        <h2>Core Competencies</h2>
-        <p>Infrastructure Management | Automation | Disaster Recovery | Capacity Planning | Performance Tuning | System Administration | Incident & Change Management | Compliance & Security Hardening</p>
-    </div>
-
-    <div class="section">
-        <h2>Professional Experience</h2>
-        <h3>Tata Consultancy Services (TCS), Bengaluru</h3>
-        <p><strong>Server Administrator (Feb 2019 – Present)</strong> | Client: Toronto-Dominion Bank</p>
-        <ul>
-            <li>Administered Windows Servers (2008–2019) and implemented GPO using AGPM with CIS/NIST baseline.</li>
-            <li>Used Terraform, vCenter, and Veritas Volume Manager for vCPU, vRAM, and disk expansion.</li>
-            <li>Managed UCS configurations, DNS, DHCP, and RDSH installations.</li>
-            <li>Decommissioned physical/virtual servers and validated CI changes on ServiceNow.</li>
-            <li>Maintained access control for shared folders; used SCOM to validate server monitoring.</li>
-            <li>Troubleshot BSOD via WinDbg, TLS cipher suites, DLP/CrowdStrike/DCA client updates.</li>
-            <li>Developed SOPs, mentored juniors, and led knowledge transfer sessions.</li>
-        </ul>
-        <p><strong>Key Achievements:</strong> Improved security posture with CIS/NIST-aligned configurations; Automated provisioning workflows using Terraform & UCS Manager; Enhanced server monitoring through SCOM integrations.</p>
-
-        <h3>Wipro Technologies, Bengaluru</h3>
-        <p><strong>Server Administrator (Mar 2013 – Jan 2019)</strong></p>
-        <p><em>Client: Lloyds Banking Group (Sep 2015 – Jan 2019)</em></p>
-        <ul>
-            <li>Provided L2 server support, applied patches via SCCM, HPSA, and resolved update issues.</li>
-            <li>Diagnosed BSODs using memory dump analysis, managed hardware issues via ILO.</li>
-            <li>Troubleshot Windows update errors, validated change requests and coordinated RCA documentation.</li>
-        </ul>
-        <p><em>Client: US Bank (Jun 2013 – Aug 2015)</em></p>
-        <ul>
-            <li>Supported global infrastructure using Gomez, Netcool, Sitescope, and CA Workload Automation.</li>
-            <li>Analyzed Autosys logs, IIS logs, and syslogs for failure resolution and network monitoring.</li>
-            <li>Delivered performance tuning and SLA-driven support with RCA documentation.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Microsoft Certified: Azure Administrator Associate (AZ-104)</li>
-            <li>ServiceNow Certified System Administrator</li>
-            <li>ITIL Foundation (Incident, Change & Problem Management)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Education</h2>
-        <p><strong>Bachelor of Science in Mathematics</strong><br>Sree Narayana Guru College, Bharathiyar University – 2012</p>
-    </div>
-
-    <div class="section">
-        <h2>Availability</h2>
-        <p>Immediately available for opportunities in infrastructure administration, cloud migration, or automation roles.</p>
-    </div>
-
 </body>
 </html>
