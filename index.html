@@ -3,483 +3,457 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio and GitHub profile for Anish Abraham, focused on Windows Server, Azure, automation, infrastructure as code, and monitoring." />
-  <title>Anish Abraham | Cloud & Windows Infrastructure Portfolio</title>
+  <meta name="description" content="Resume profile for Anish Abraham, Senior Infrastructure Engineer specializing in Windows Server, VMware, Azure, automation, ITIL, and infrastructure operations." />
+  <title>Anish Abraham | Senior Infrastructure Engineer</title>
   <style>
     :root {
-      --bg: #07111f;
-      --panel: #0d1b2f;
-      --panel-soft: #132640;
-      --primary: #38bdf8;
-      --accent: #22c55e;
-      --text: #e5eefb;
-      --muted: #9fb2cc;
-      --border: rgba(148, 163, 184, 0.25);
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --bg: #eef4fb;
+      --paper: #ffffff;
+      --ink: #132033;
+      --muted: #5d6b82;
+      --primary: #175cd3;
+      --primary-dark: #123f91;
+      --accent: #0e9384;
+      --line: #d7e2ef;
+      --soft: #f6f9fd;
+      --shadow: 0 24px 80px rgba(19, 32, 51, 0.12);
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 35%),
-        radial-gradient(circle at top right, rgba(34, 197, 94, 0.18), transparent 32%),
+        radial-gradient(circle at top left, rgba(23, 92, 211, 0.14), transparent 34%),
+        radial-gradient(circle at top right, rgba(14, 147, 132, 0.14), transparent 30%),
         var(--bg);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      padding: 72px 0 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card {
-      background: linear-gradient(135deg, rgba(13, 27, 47, 0.94), rgba(19, 38, 64, 0.88));
-      border: 1px solid var(--border);
-      border-radius: 32px;
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--paper);
+      border-radius: 28px;
       box-shadow: var(--shadow);
-      padding: clamp(28px, 5vw, 64px);
+      overflow: hidden;
+      border: 1px solid rgba(215, 226, 239, 0.9);
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 28px;
+      padding: clamp(28px, 5vw, 54px);
+      color: #ffffff;
+      background: linear-gradient(135deg, #102a56 0%, #175cd3 58%, #0e9384 100%);
     }
 
     .eyebrow {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      color: var(--primary);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      margin: 0 0 10px;
       font-size: 0.78rem;
-      margin-bottom: 18px;
-    }
-
-    .pulse {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.12);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.88;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.6rem, 7vw, 5.6rem);
-      line-height: 0.96;
-      letter-spacing: -0.07em;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff, #7dd3fc, #86efac);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .role {
+      margin: 16px 0 0;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: 700;
+      color: #dff9ff;
     }
 
-    .hero p {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 1.15rem;
-      margin: 26px 0 0;
+    .contact-card {
+      align-self: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
+    .contact-card h2 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 13px 20px;
-      font-weight: 800;
-      border: 1px solid var(--border);
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn-primary {
-      color: #03111f;
-      background: linear-gradient(90deg, var(--primary), #86efac);
-      border: 0;
-    }
-
-    .btn-secondary { background: rgba(255, 255, 255, 0.04); }
-
-    .stats {
+    .contact-list {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 700;
     }
 
-    .stat {
-      background: rgba(255, 255, 255, 0.045);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 18px;
+    .content {
+      display: grid;
+      grid-template-columns: 0.82fr 1.5fr;
+      gap: 32px;
+      padding: clamp(24px, 4vw, 46px);
     }
 
-    .stat strong {
-      display: block;
-      color: #fff;
-      font-size: 1.75rem;
-      line-height: 1;
-    }
+    aside, main { min-width: 0; }
 
-    .stat span { color: var(--muted); font-size: 0.9rem; }
-
-    section { padding: 34px 0; }
-
-    .section-title {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 22px;
-    }
+    section + section { margin-top: 30px; }
 
     h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      letter-spacing: -0.04em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 16px;
+      color: var(--primary-dark);
+      font-size: 1.06rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .section-title p {
-      max-width: 520px;
-      margin: 0;
-      color: var(--muted);
+    h2::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(14, 147, 132, 0.12);
+      flex: 0 0 auto;
     }
 
-    .skills {
+    h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.15rem;
+    }
+
+    p { margin: 0; color: var(--muted); }
+
+    .card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .objective p,
+    .summary p { text-align: justify; }
+
+    .pill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .badge {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.05);
+    .pill-list li {
+      padding: 8px 11px;
       border-radius: 999px;
-      color: #dceafe;
-      padding: 9px 13px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--primary-dark);
       font-weight: 700;
       font-size: 0.88rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .project-card {
-      min-height: 100%;
-      background: linear-gradient(180deg, rgba(19, 38, 64, 0.95), rgba(13, 27, 47, 0.95));
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 22px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(56, 189, 248, 0.55);
-    }
-
-    .project-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.22rem;
-    }
-
-    .repo-name {
-      color: var(--primary);
-      font-family: "SFMono-Regular", Consolas, monospace;
-      font-size: 0.84rem;
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    .project-card ul {
+    .simple-list,
+    .bullet-list {
       margin: 0;
       padding-left: 20px;
       color: var(--muted);
     }
 
-    .profile-readme {
+    .simple-list li,
+    .bullet-list li { margin-bottom: 8px; }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 22px;
+    }
+
+    .job {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: #ffffff;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .company {
+      margin-top: 4px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .date {
+      color: var(--muted);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .subhead {
+      margin: 18px 0 8px;
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    .panel {
-      background: rgba(255, 255, 255, 0.045);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px;
-    }
-
-    .panel h3 { margin-top: 0; }
-
-    .check-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      color: var(--muted);
-    }
-
-    .check-list li::before {
-      content: "✓";
-      color: var(--accent);
-      font-weight: 900;
-      margin-right: 8px;
+    .education strong,
+    .certifications strong {
+      display: block;
+      color: var(--ink);
     }
 
     footer {
-      padding: 42px 0 56px;
+      padding: 22px 46px 36px;
       color: var(--muted);
       text-align: center;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 900px) {
-      .stats, .grid, .profile-readme { grid-template-columns: 1fr 1fr; }
-      .section-title { align-items: start; flex-direction: column; }
+      .header,
+      .content,
+      .two-col { grid-template-columns: 1fr; }
+      .contact-card { align-self: stretch; }
+      .job-header { flex-direction: column; }
+      .date { white-space: normal; }
     }
 
-    @media (max-width: 620px) {
-      .hero { padding-top: 32px; }
-      .stats, .grid, .profile-readme, .check-list { grid-template-columns: 1fr; }
-      .hero-card { border-radius: 24px; }
+    @media print {
+      body { background: #ffffff; }
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .header { border-radius: 0; }
+      .job, .card { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="hero-card">
-        <div class="eyebrow"><span class="pulse"></span> GitHub Profile Portfolio</div>
-        <h1>Anish Abraham<br><span class="gradient-text">Cloud & Windows Infrastructure</span></h1>
-        <p>
-          A focused portfolio roadmap for automation, Azure landing zones, Active Directory operations,
-          Windows Server hardening, monitoring, VMware administration, and infrastructure as code labs.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View Repository Plan</a>
-          <a class="btn btn-secondary" href="#profile-readme">GitHub README Sections</a>
-        </div>
-        <div class="stats" aria-label="Portfolio highlights">
-          <div class="stat"><strong>10</strong><span>Featured repositories</span></div>
-          <div class="stat"><strong>40+</strong><span>Automation scripts & labs</span></div>
-          <div class="stat"><strong>Azure</strong><span>Cloud infrastructure focus</span></div>
-          <div class="stat"><strong>Windows</strong><span>Server administration focus</span></div>
-        </div>
+  <div class="page">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Resume Profile</p>
+        <h1>Anish Abraham</h1>
+        <p class="role">Senior Infrastructure Engineer</p>
       </div>
-    </div>
-  </header>
-
-  <main>
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <h2>Core Skills</h2>
-          <p>Technologies and practices represented across the repositories and profile README.</p>
-        </div>
-        <div class="skills">
-          <span class="badge">PowerShell</span>
-          <span class="badge">Azure</span>
-          <span class="badge">Terraform</span>
-          <span class="badge">Active Directory</span>
-          <span class="badge">Windows Server</span>
-          <span class="badge">CIS Benchmark</span>
-          <span class="badge">Azure Monitor</span>
-          <span class="badge">Log Analytics</span>
-          <span class="badge">GitHub Actions</span>
-          <span class="badge">PowerCLI</span>
-          <span class="badge">VMware</span>
-          <span class="badge">Bicep</span>
-          <span class="badge">ARM Templates</span>
-          <span class="badge">Python</span>
-        </div>
+      <div class="contact-card" aria-label="Personal details">
+        <h2>Personal Details</h2>
+        <ul class="contact-list">
+          <li>📞 +91-8884507437</li>
+          <li>✉️ anish.abraham-a@capgemini.com</li>
+          <li>📍 Bengaluru, India</li>
+        </ul>
       </div>
-    </section>
+    </header>
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-title">
-          <h2>Repository Structure</h2>
-          <p>Each repository is scoped to demonstrate practical infrastructure, automation, monitoring, and operations experience.</p>
-        </div>
-        <div class="grid">
-          <article class="project-card">
-            <h3>PowerShell Automation</h3>
-            <span class="repo-name">powershell-automation</span>
-            <ul>
-              <li>AD user creation and password reset</li>
-              <li>Disk cleanup and disk space reports</li>
-              <li>Service monitoring and IIS checks</li>
-              <li>Patch status and inventory collection</li>
-            </ul>
-          </article>
+    <div class="content">
+      <aside>
+        <section class="card objective">
+          <h2>Career Objective</h2>
+          <p>
+            Dedicated IT professional with extensive experience in Windows and VMware environments seeking an Analyst position to leverage expertise in automation, infrastructure management, and security for enhanced operational efficiency and stability within a dynamic IT organization. Aims to apply proven problem-solving skills and ITIL framework knowledge to contribute to innovative solutions and drive continuous service improvement.
+          </p>
+        </section>
 
-          <article class="project-card">
-            <h3>Terraform Azure Landing Zone</h3>
-            <span class="repo-name">terraform-azure-landing-zone</span>
-            <ul>
-              <li>Resource group, VNet, and NSG</li>
-              <li>Storage account and Windows VM</li>
-              <li>Azure Bastion deployment</li>
-              <li>main.tf, variables, outputs, and providers</li>
-            </ul>
-          </article>
+        <section>
+          <h2>Technical Skills</h2>
+          <ul class="pill-list">
+            <li>VMware vSphere</li>
+            <li>Windows Server</li>
+            <li>Active Directory</li>
+            <li>PowerShell</li>
+            <li>ServiceNow</li>
+            <li>Terraform</li>
+            <li>GPO</li>
+            <li>CyberArk</li>
+            <li>ITIL Framework</li>
+            <li>SCCM</li>
+            <li>HPSA</li>
+            <li>UCS</li>
+            <li>SCOM</li>
+          </ul>
+        </section>
 
-          <article class="project-card">
-            <h3>Active Directory Toolkit</h3>
-            <span class="repo-name">active-directory-toolkit</span>
-            <ul>
-              <li>Create, disable, unlock, and reset users</li>
-              <li>Bulk CSV import and user export</li>
-              <li>Group membership reporting</li>
-              <li>Inactive users and OU cleanup</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <h3>Windows Server Hardening</h3>
-            <span class="repo-name">windows-server-hardening</span>
-            <ul>
-              <li>CIS benchmark implementation</li>
-              <li>TLS, SMB, and RDP hardening</li>
-              <li>Firewall and audit policies</li>
-              <li>Password and local security policy</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <h3>Azure Monitoring Lab</h3>
-            <span class="repo-name">azure-monitoring-lab</span>
-            <ul>
-              <li>Azure Monitor and Log Analytics</li>
-              <li>Alerts, Azure Arc, and VM Insights</li>
-              <li>CPU, memory, disk, and heartbeat dashboards</li>
-              <li>Availability examples</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <h3>GitHub Actions Labs</h3>
-            <span class="repo-name">github-actions-labs</span>
-            <ul>
-              <li>Terraform deployment workflows</li>
-              <li>PowerShell linting</li>
-              <li>Azure login examples</li>
-              <li>Build validation and YAML samples</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <h3>VMware Automation</h3>
-            <span class="repo-name">vmware-automation</span>
-            <ul>
-              <li>PowerCLI VM creation and cloning</li>
-              <li>Resize disk and snapshot workflows</li>
-              <li>Delete snapshot and power operations</li>
-              <li>VM inventory reporting</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <h3>Windows Admin Scripts</h3>
-            <span class="repo-name">windows-admin-scripts</span>
-            <ul>
-              <li>CPU, RAM, disk, and inventory reports</li>
-              <li>Windows updates and RDP sessions</li>
-              <li>Installed software and certificates</li>
-              <li>DNS checks and service restarts</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <h3>Infrastructure as Code</h3>
-            <span class="repo-name">infrastructure-as-code</span>
-            <ul>
-              <li>Terraform examples</li>
-              <li>PowerShell DSC configurations</li>
-              <li>ARM templates and Bicep</li>
-              <li>Azure CLI deployment examples</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <h3>Server Health Dashboard</h3>
-            <span class="repo-name">server-health-dashboard</span>
-            <ul>
-              <li>Python and PowerShell dashboard</li>
-              <li>CPU, RAM, disk, and service checks</li>
-              <li>Ping and network health</li>
-              <li>Email alerting</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="profile-readme">
-      <div class="container">
-        <div class="section-title">
-          <h2>GitHub Profile README</h2>
-          <p>A profile README layout designed to communicate experience quickly and visually.</p>
-        </div>
-        <div class="profile-readme">
-          <div class="panel">
-            <h3>README.md for AnishAbraham</h3>
-            <p>
-              The profile README can introduce the portfolio with an animated banner, a concise about section,
-              skill badges, certifications, stats, contribution graph, visitor counter, contact links, and featured projects.
-            </p>
-          </div>
-          <div class="panel">
-            <h3>Recommended Sections</h3>
-            <ul class="check-list">
-              <li>Animated Banner</li>
-              <li>About Me</li>
-              <li>Skills</li>
-              <li>Certifications</li>
-              <li>Badges</li>
-              <li>GitHub Stats</li>
-              <li>Contribution Graph</li>
-              <li>Visitor Counter</li>
-              <li>Contact</li>
-              <li>Featured Projects</li>
+        <section class="two-col">
+          <div>
+            <h2>Soft Skills</h2>
+            <ul class="simple-list">
+              <li>Communication</li>
+              <li>Problem-Solving</li>
+              <li>Collaboration</li>
+              <li>Documentation</li>
+              <li>Adaptability</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
+          <div>
+            <h2>Hobbies</h2>
+            <ul class="simple-list">
+              <li>Technology</li>
+              <li>Automation</li>
+              <li>Problem-solving</li>
+              <li>Documentation</li>
+            </ul>
+          </div>
+        </section>
 
-  <footer>
-    <div class="container">
-      Built for the AnishAbraham GitHub portfolio roadmap.
+        <section>
+          <h2>Core Competencies</h2>
+          <ul class="simple-list">
+            <li>Infrastructure Management</li>
+            <li>Automation &amp; Scripting</li>
+            <li>System Administration</li>
+            <li>Security Management</li>
+            <li>Incident Management</li>
+          </ul>
+        </section>
+
+        <section class="card education">
+          <h2>Education</h2>
+          <p><strong>Bachelor of Science in Mathematics</strong>Sree Narayana Guru College, Bharathiyar University</p>
+          <p>2012</p>
+        </section>
+
+        <section class="card certifications">
+          <h2>Certifications</h2>
+          <p><strong>Microsoft Certified: Azure Administrator Associate</strong>AZ-104</p>
+          <p><strong>ServiceNow Certified System Administrator</strong></p>
+          <p><strong>ITIL Foundation</strong>Change, Incident, and Problem Management</p>
+        </section>
+      </aside>
+
+      <main>
+        <section class="card summary">
+          <h2>Professional Summary</h2>
+          <p>
+            Versatile IT Analyst with extensive experience managing and optimizing Windows and VMware infrastructure environments. Proficient in automation and scripting using PowerShell, Terraform, and other tools to streamline IT operations and enhance security. Skilled in Active Directory, Group Policy, TLS/SSL, IPSec, SCOM, Dynatrace, WinDbg, ServiceNow, BMC Remedy, JIRA, Jenkins, GitHub, and basic SQL querying. Experienced with Cisco UCS Manager, IBM Bluemix, OpenStack, Veritas Volume Manager, Azure, AWS, Azure Arc, AWS Systems Manager, and CloudWatch to maintain landing zone guardrails, orchestrate patching and compliance, and meet SLA, RPO, and RTO targets.
+          </p>
+        </section>
+
+        <section>
+          <h2>Work Experience</h2>
+          <div class="timeline">
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <h3>Server Administrator</h3>
+                  <p class="company">Tata Consultancy Services (TCS), Bengaluru</p>
+                </div>
+                <p class="date">Feb 2019 - May 2026</p>
+              </div>
+              <p class="subhead">Work Done</p>
+              <ul class="bullet-list">
+                <li>Administered and maintained Windows Server environments from 2008 to 2019, ensuring performance, security, and availability.</li>
+                <li>Implemented security policies using AGPMC and CIS/NIST benchmarks, and managed GPOs across PAT to PROD environments with AGPM version control.</li>
+                <li>Configured servers, DNS, DHCP, network settings, UCS drivers, RDSH, and RD Licensing to meet business access and performance needs.</li>
+                <li>Executed vCPU, vRAM, and disk capacity adjustments using Terraform, vCenter, Veritas Volume Manager, and UCS Manager.</li>
+                <li>Decommissioned physical and virtual servers, updated ServiceNow CMDB records, and released storage safely.</li>
+                <li>Operated cloud VM workloads, storage, and networking with Azure ExpressRoute, AWS VPN, Azure Backup, and Recovery Services Vaults.</li>
+                <li>Used Azure Arc, Azure Monitor, Log Analytics, and AWS SSM to monitor capacity, cost baselines, and CPU or memory hotspots.</li>
+                <li>Built repeatable Infrastructure-as-Code environments and automated patch orchestration with Terraform and GitHub pipelines.</li>
+                <li>Managed shared folders, group permissions, ACLs, CipherTrust access, SCOM onboarding, Avamar clients, and agent upgrades for DLP, CrowdStrike, and DCA clients.</li>
+                <li>Diagnosed BSOD issues using WinDbg and memory dump analysis while following ITIL incident and problem management practices.</li>
+                <li>Authored SOPs, delivered knowledge transfer sessions, mentored junior engineers, and led critical incident triage and RCA activities.</li>
+              </ul>
+              <p class="subhead">Achievements</p>
+              <ul class="bullet-list">
+                <li>Improved server security posture by implementing CIS/NIST benchmark controls.</li>
+                <li>Streamlined resource allocation through Terraform and vCenter capacity adjustments.</li>
+                <li>Enhanced observability by enabling SCOM monitoring for new servers.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <h3>Application Management</h3>
+                  <p class="company">Wipro Technologies, Bengaluru</p>
+                </div>
+                <p class="date">Jun 2013 - Aug 2015</p>
+              </div>
+              <p class="subhead">Work Done</p>
+              <ul class="bullet-list">
+                <li>Provided proactive and reactive support for critical banking applications for US Bank customers in a globally distributed infrastructure.</li>
+                <li>Used Gomez, Wily Introscope, Netcool, CA Workload Center, and HP Sitescope to monitor application and server performance.</li>
+                <li>Resolved failed transactions by analyzing Audit and CC logs, engaging stakeholders to minimize downtime.</li>
+                <li>Troubleshot Autosys job failures on Windows servers using CA Workload Automation tools, including reruns and root cause analysis.</li>
+                <li>Monitored network devices and server endpoints, investigated LAN/WAN faults, and tuned system and network resources to prevent outages.</li>
+                <li>Analyzed IIS logs, syslogs, Event Viewer, and performance metrics while providing L2 application and infrastructure support.</li>
+              </ul>
+              <p class="subhead">Achievements</p>
+              <ul class="bullet-list">
+                <li>Maintained acceptable application and infrastructure availability through timely alert and incident resolution.</li>
+                <li>Helped reduce downtime by addressing transaction failures and documenting root cause analysis.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <h3>Project Engineer - Server Administrator</h3>
+                  <p class="company">Wipro Technologies, Bengaluru</p>
+                </div>
+                <p class="date">Mar 2013 - Jan 2019</p>
+              </div>
+              <p class="subhead">Work Done</p>
+              <ul class="bullet-list">
+                <li>Supported UK Bank customers by maintaining server and user network infrastructure within defined SLAs.</li>
+                <li>Installed monthly patches using Landesk, SCCM, and HPSA to mitigate security vulnerabilities.</li>
+                <li>Resolved Windows Update issues by analyzing WindowsUpdate.log, resetting update components, and addressing WUA/WSUS synchronization errors.</li>
+                <li>Diagnosed BSOD issues through WinDbg memory dump analysis to identify faulty drivers and kernel-level issues.</li>
+                <li>Resolved hardware issues through ILO and RDP, and coordinated vendor repairs through email and IBM Service Tool.</li>
+                <li>Used IIS logs, syslogs, Event Viewer, and server commands to resolve network and server failures.</li>
+                <li>Managed incidents, service requests, problem records, RCA documentation, and formal change requests with minimal service disruption.</li>
+                <li>Participated in service improvement plans and infrastructure stability initiatives.</li>
+              </ul>
+              <p class="subhead">Achievements</p>
+              <ul class="bullet-list">
+                <li>Supported consistent application of security patches across systems.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </main>
     </div>
-  </footer>
+
+    <footer>
+      Resume profile built as a clean, responsive single-page HTML document.
+    </footer>
+  </div>
 </body>
 </html>
