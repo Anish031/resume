@@ -1,2642 +1,635 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
-	<meta name="author" content="rohit">
-	<title>OutSpark | Dashboard</title>
-	<link href="/plugins/ph-icons/icons.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Resume profile for Anish Abraham, Senior Infrastructure Engineer specializing in Windows Server, VMware, Azure, automation, ITIL, and infrastructure operations." />
+  <title>Anish Abraham | Senior Infrastructure Engineer</title>
+  <style>
+    :root {
+      --bg: #eef4fb;
+      --paper: #ffffff;
+      --ink: #132033;
+      --muted: #5d6b82;
+      --primary: #175cd3;
+      --primary-dark: #123f91;
+      --accent: #0e9384;
+      --line: #d7e2ef;
+      --soft: #f6f9fd;
+      --shadow: 0 24px 80px rgba(19, 32, 51, 0.12);
+    }
 
-	<link href="/css/loader.css" rel="stylesheet">
+    * { box-sizing: border-box; }
 
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(23, 92, 211, 0.14), transparent 34%),
+        radial-gradient(circle at top right, rgba(14, 147, 132, 0.14), transparent 30%),
+        var(--bg);
+      line-height: 1.55;
+    }
 
-	<script>
-		var ss = {"USER_SESSION_OBJECT":{"userId":165714,"email":null,"username":null,"firstName":null,"lastName":null,"profileImage":null,"fullName":"Anish","ssoId":"4f49c800-5bbf-403a-a3c9-1de3bffdf062","mobile":8884507437}};
-		var payUrl = null;
-		// console.log("Session", ss);
-	</script>
-	<script src="/plugins/bootstrap/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="/css/scss/outspark-theme.css">
-	<link href="/css/main.css" rel="stylesheet">
-	<script src="/vendor/jquery/jquery.min.js"></script>
-	<script src="/js/common.js"></script>
+    a { color: inherit; text-decoration: none; }
 
-	
-	<!-- Google Tag Manager -->
-	<script>(function (w, d, s, l, i) {
-			w[l] = w[l] || []; w[l].push({
-				'gtm.start':
-					new Date().getTime(), event: 'gtm.js'
-			}); var f = d.getElementsByTagName(s)[0],
-				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-		})(window, document, 'script', 'dataLayer', 'GTM-KWBKXF27');</script>
-	<!-- End Google Tag Manager -->
+    .site-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(238, 244, 251, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(215, 226, 239, 0.72);
+    }
 
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7GZW1B5K24"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-		gtag('config', 'G-7GZW1B5K24');
-	</script>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
 
-	<!-- Meta Pixel Code -->
-	<script>
-		!function (f, b, e, v, n, t, s) {
-			if (f.fbq) return; n = f.fbq = function () {
-				n.callMethod ?
-					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-			};
-			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-			n.queue = []; t = b.createElement(e); t.async = !0;
-			t.src = v; s = b.getElementsByTagName(e)[0];
-			s.parentNode.insertBefore(t, s)
-		}(window, document, 'script',
-			'https://connect.facebook.net/en_US/fbevents.js');
-		fbq('init', '445991161113814');
-		fbq('track', 'PageView');
-	</script>
-	<noscript><img height="1" width="1" style="display:none"
-			src="https://www.facebook.com/tr?id=445991161113814&ev=PageView&noscript=1" /></noscript>
-	<!-- End Meta Pixel Code -->
-	<!-- LinkedIn: stub so inline head conversions do not throw before footer insight.min.js loads -->
-	<script>
-		window.lintrk = window.lintrk || function (a, b) { (window.lintrk.q = window.lintrk.q || []).push([a, b]); };
-	</script>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
 
-	<script>
-		//Google
-		gtag('event', 'conversion', { 'send_to': 'AW-11247044243/dmpZCLTfgIEZEJONgfMp' });
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 12px 28px rgba(23, 92, 211, 0.24);
+    }
 
-		// LinkedIn
-		window.lintrk('track', { conversion_id: 16677761 });
-	</script>
-	<!-- Scaled html script -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-	<script src="/js/multiple-thumb.js"></script>
-	<link rel="stylesheet" href="/tabs-scroll/tabs-scroll.css">
-	<!-- Scaled html script -->
-	<!-- Style for generating resume thumbnails -->
-	<style>
-		/*Start Final Draft*/
-		.draft-btn {
-			font-size: 14px;
-		}
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
 
-		.call-left {
-			background-color: #D9FFF6;
-			width: 100px;
-			font-size: 12px;
-		}
+    .nav-links a:hover { color: var(--primary); }
 
-		.preview-link {
-			background-color: #1CB08F;
-			right: 4% !important;
-			bottom: 12px !important;
-		}
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 28px auto 36px;
+      background: var(--paper);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(215, 226, 239, 0.9);
+    }
 
-		img {
-			max-width: 100%;
-		}
+    .header {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 28px;
+      padding: clamp(34px, 6vw, 72px);
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.18), transparent 22%),
+        radial-gradient(circle at 86% 22%, rgba(14, 147, 132, 0.35), transparent 28%),
+        linear-gradient(135deg, #102a56 0%, #175cd3 58%, #0e9384 100%);
+      overflow: hidden;
+    }
 
-		.resume-container-preview {
-			position: absolute;
-			left: 1px;
-			top: 3px;
-			right: 3px;
-			bottom: 3px;
-			overflow: hidden;
-		}
+    .header::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -160px auto;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
 
-		.page_content {
-			width: 800px;
-			height: 600px;
-			transform-origin: top left;
-			transition: all 500ms ease-in-out !important;
-			position: absolute;
-		}
+    .hero-copy, .contact-card { position: relative; z-index: 1; }
 
-		#feedbackModal .modal-dialog,
-		#feedbackRatingModal .modal-dialog,
-		#feedbackThankyouModal .modal-dialog,
-		#positiveReview .modal-dialog,
-		#apologyCard .modal-dialog {
-			top: 50%;
-			transform: translateY(-50%);
-		}
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.88;
+    }
 
-		span.close_icon {
-			position: absolute;
-			right: -6px;
-			top: -6px;
-		}
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
 
-		span.close_icon:hover {
-			cursor: pointer;
-		}
+    .role {
+      margin: 16px 0 0;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: 700;
+      color: #dff9ff;
+    }
 
-		span.close_icon .ph-x-circle {
-			font-size: 25px;
-		}
+    .hero-summary {
+      max-width: 700px;
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 1.05rem;
+    }
 
-		.feedback_emog {
-			position: fixed;
-			font-size: 37px;
-			padding: 5px;
-			background: #1CB08F;
-			border-radius: 50% 50% 10px 50%;
-			height: 55px;
-			width: 55px;
-			align-items: center;
-			justify-content: center;
-			border: 1px #fff solid;
-			bottom: 10%;
-			display: flex;
-			right: 20px;
-			transition: 2s;
-			opacity: 0;
-			transform: scale(0.8);
-			transition: opacity 0.5s ease, transform 0.5s ease;
-		}
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
 
-		.feedback_emog:hover {
-			cursor: pointer;
-		}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-		.feedback_emog.animate-emog {
-			opacity: 1;
-			transform: scale(1);
-		}
+    .btn:hover { transform: translateY(-2px); }
 
-		.feedback_emog span {
-			transition: 0.2s;
-			animation: rotateEmoji 1s infinite;
-		}
+    .btn-primary {
+      color: var(--primary-dark);
+      background: #ffffff;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+    }
 
-		@keyframes rotateEmoji {
-			0% {
-				transform: rotate(0deg);
-			}
+    .btn-ghost {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+    }
 
-			50% {
-				transform: rotate(40deg);
-			}
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+      max-width: 720px;
+    }
 
-			100% {
-				transform: rotate(0deg);
-			}
-		}
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
 
-		#feedbackTextarea::placeholder {
-			color: #B2B2B2;
-			opacity: 1;
-		}
+    .stat strong { display: block; font-size: 1.45rem; }
+    .stat span { color: rgba(255, 255, 255, 0.78); font-size: 0.86rem; }
 
-		.star_rating .star:hover {
-			cursor: pointer;
-		}
+    .contact-card {
+      align-self: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+    }
 
-		.sad_emoji {
-			font-size: 60px;
-			text-align: center;
-		}
+    .contact-card h2 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-		.remind_later {
-			font-size: 14px;
-		}
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 700;
+    }
 
-		.shareFeedbackBtn {
-			font-size: 14px;
-		}
-	</style>
+    .content {
+      display: grid;
+      grid-template-columns: 0.82fr 1.5fr;
+      gap: 32px;
+      padding: clamp(24px, 4vw, 46px);
+    }
+
+    aside, main { min-width: 0; }
+
+    section + section { margin-top: 30px; }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 16px;
+      color: var(--primary-dark);
+      font-size: 1.06rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(14, 147, 132, 0.12);
+      flex: 0 0 auto;
+    }
+
+    h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.15rem;
+    }
+
+    p { margin: 0; color: var(--muted); }
+
+    .card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 12px 34px rgba(19, 32, 51, 0.06);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .highlight {
+      padding: 16px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+    }
+
+    .highlight strong {
+      display: block;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .objective p,
+    .summary p { text-align: justify; }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pill-list li {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .simple-list,
+    .bullet-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .simple-list li,
+    .bullet-list li { margin-bottom: 8px; }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 22px;
+    }
+
+    .job {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      background: #ffffff;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .company {
+      margin-top: 4px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .date {
+      color: var(--muted);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .subhead {
+      margin: 18px 0 8px;
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .education strong,
+    .certifications strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    footer {
+      padding: 22px 46px 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .header,
+      .content,
+      .two-col,
+      .hero-stats,
+      .highlight-grid { grid-template-columns: 1fr; }
+      .contact-card { align-self: stretch; }
+      .job-header { flex-direction: column; }
+      .date { white-space: normal; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .nav-links { flex-wrap: wrap; gap: 12px; }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .header { border-radius: 0; }
+      .job, .card { break-inside: avoid; }
+    }
+  </style>
 </head>
-
-<body id="page-top" style="background-color: #F5F5FB;">
-	
-	<!-- Google Tag Manager (noscript) -->
-	<noscript>
-		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBKXF27" height="0" width="0"
-			style="display:none;visibility:hidden"></iframe>
-	</noscript>
-	<!-- End Google Tag Manager (noscript) -->
-
-	<!--mobile menu start-->
-	
-	<div class="offcanvas offcanvas-start mobile-menus" tabindex="-1" id="offcanvasLeft"
-		aria-labelledby="offcanvasLeftLabel">
-		<div class="offcanvas-header justify-content-end">
-			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-		</div>
-		<div class="offcanvas-body ps-0 pt-0">
-			<nav class="bg-white mb-5 menu-item">
-				<ul class="list-unstyled d-flex flex-column">
-					<li class="nav-item">
-						<a class="nav-link d-flex align-items-center px-2 job-alerts-link" href="/job-alerts">
-							<i class="ph ph-bell fs-5 me-2"></i>
-							<span class="d-flex align-items-center gap-1">
-								<span>Job Alerts</span>
-								<span class="px-2 rounded text-white small"
-									style="background-color: #FF0000;">NEW</span>
-							</span>
-						</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link d-flex align-items-center px-2" href="/resume/dashboard">
-							<i class="ph ph-file-minus fs-4 me-2"></i>
-							<span>My Resume</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link d-flex align-items-center px-2"
-							href="https://interviewprep.myoutspark.com/common/login?session_token=165714">
-							<i class="ph ph-chats-circle fs-5 me-2"></i>
-							<span class="d-flex align-items-start">Interview Prep ️‍
-							</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link d-flex align-items-center px-2" href="https://myoutspark.com/linkedin-profile-makeover/v2?utm_source=Website">
-							<i class="ph ph-linkedin-logo fs-5 me-2"></i>
-							Profile Makeover For LinkedIn</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link d-flex align-items-center px-2" href="/linkedin-content-calendar-post-buddy">
-							<i class="ph ph-microphone fs-5 me-2"></i>
-							<span class="d-flex align-items-center gap-1">
-								<span>Post Buddy For LinkedIn</span>
-								<span>🔥</span>
-							</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link d-flex align-items-center px-2" href="/resume/profile">
-							<i class="ph ph-user-circle fs-4 me-2"></i>
-							<span>My Profile</span>
-						</a>
-					</li>
-					
-						<li class="nav-item">
-							<a class="nav-link d-flex align-items-center px-2" href="/resume/faq">
-								<i class="ph ph-question fs-4 me-2"></i>
-								<span>FAQ</span>
-							</a>
-						</li>
-					
-
-					
-					<!-- <th:block th:if="${plan != null && (plan.planType == 'premium' || plan.planType == 'gold')}"> -->
-					<li class="nav-item">
-						<a class="nav-link d-flex align-items-center px-2" href="/refer">
-							<i class="ph ph-users  fs-5 me-2"></i>
-							<span>Invite friends </span>
-						</a>
-					</li>
-					<!-- </th:block> -->
-					
-				</ul>
-
-				<a href="/refer" class="text-decoration-none text-dark">
-					<div class="refer_card  mx-2 my-3">
-						<div class="pe-3 bg_lightgreen rounded px-3 pt-4 pb-2">
-							<h5 class="fw-bold mb-1">Get 3 interview practice sessions</h5>
-							<div class="fw-semibold worth_img mb-2" style="max-width: 180px;">
-								<img src="/images/worth_webbanners.png" alt="Interview Worth" class="img-fluid" />
-							</div>
-							<p class="mb-2" style="font-size: 12px;">Share your referral link to help a friend who needs
-								a great resume</p>
-							<div class="text-primary text-decoration-underline">See Your Referral Link</div>
-						</div>
-					</div>
-				</a>
-
-
-
-				<div class="d-md-flex flex-column my-3">
-					
-					<div class="card mx-2">
-						<div class="card-body p-3">
-							<div class="d-flex align-items-center">
-								<div>
-									<p class="fw-medium mb-2">Follow us on Social media</p>
-									<ul class="social-menus ps-0 mb-0 d-flex flex-wrap gap-2">
-
-										<li>
-											<a href="https://www.instagram.com/myoutspark/" target="_blank">
-												<img src="/images/insta-icon.png" alt="Instagram">
-											</a>
-										</li>
-										<li>
-											<a href="https://www.facebook.com/profile.php?id=61550799067449"
-												target="_blank">
-												<img src="/images/fb-icon.png" alt="Facebook">
-											</a>
-										</li>
-										<li>
-											<a href="https://www.youtube.com/@myoutspark" target="_blank">
-												<img src="/images/yt-icon.png" alt="YouTube">
-											</a>
-										</li>
-										<li>
-											<a href="https://www.linkedin.com/company/myoutspark/" target="_blank">
-												<img src="/images/linkedin-icon.png" alt="Linkedin">
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</div>
-
-	<!--mobile menu end-->
-	<!--web Header start-->
-	
-
-	<!--web Header start-->
-
-	<!-- only Free starts-->
-	
-		
-		
-		
-		
-		
-			
-	<header class="shadow bg-white">
-		<div class="container-fluid d-flex justify-content-between py-3  align-items-center">
-			<div class="d-flex gap-2">
-				<div class=" d-md-none" style="line-height: 0; height: fit-content;" data-bs-toggle="offcanvas"
-					data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
-					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-						<g id="Group_91289" data-name="Group 91289" transform="translate(-16 -16)">
-							<g id="Group_3950" data-name="Group 3950" transform="translate(16 16)">
-								<rect id="Rectangle_6083" data-name="Rectangle 6083" width="32" height="32" rx="6"
-									transform="translate(0 0.001)" fill="#f2f2f2" />
-							</g>
-							<g id="Group_91221" data-name="Group 91221" transform="translate(24 24.01)">
-								<rect id="Rectangle_74434" data-name="Rectangle 74434" width="16" height="16"
-									transform="translate(0 -0.01)" fill="none" />
-								<line id="Line_516" data-name="Line 516" x2="12" transform="translate(2 7.99)"
-									fill="none" stroke="#8a858d" stroke-linecap="round" stroke-linejoin="round"
-									stroke-width="1.5" />
-								<line id="Line_517" data-name="Line 517" x2="12" transform="translate(2 3.99)"
-									fill="none" stroke="#8a858d" stroke-linecap="round" stroke-linejoin="round"
-									stroke-width="1.5" />
-								<line id="Line_518" data-name="Line 518" x2="8" transform="translate(2 11.99)"
-									fill="none" stroke="#8a858d" stroke-linecap="round" stroke-linejoin="round"
-									stroke-width="1.5" />
-							</g>
-						</g>
-					</svg>
-				</div>
-				<img src="/images/logo.png" class="dashboard_logo" alt="" style="height: 40px; display: block;">
-			</div>
-			<div class="d-flex align-items-center flex-shrink-0">
-				<div class="position-relative mx-1 mx-sm-2 mx-md-3 user-img">
-					<div class="d-flex align-items-center gap-2 gap-sm-3 gap-md-4 flex-nowrap">
-						<button class="btn upgrade fw-medium text-white rounded-3 text-nowrap px-2 px-sm-3 px-md-4 py-2"
-							type="button"
-							onclick="window.location.href = '/payments/paymentPlanGold?q=tryNow'">Upgrade</button>
-						<div class="position-relative user-img d-flex justify-content-center flex-shrink-0">
-							<img src="/images/dummy_pic.jpg" alt="" height="42px" width="42px"
-								onclick="window.location.href = '/payments/paymentPlanGold?q=tryNow'"
-								class="border rounded-circle border-1 border-success user-profile-image dumy-img">
-
-						</div>
-						<!-- <th:block th:if="${allUserPlanDetailsDto.free.usedResumes > 0}">
-							<button class="btn upgrade fw-medium me-5 px-4 text-white rounded-3 d-none d-sm-block"
-								onclick="window.location.href = '/payments/paymentPlanGold?q=tryNow'">Upgrade</button>
-						</th:block>
-						<th:block th:if="${allUserPlanDetailsDto.free.status eq 'active'}">
-							<div class="d-flex justify-content-center" onclick="window.location.href = '/payments/paymentPlanGold?q=tryNow'">
-								<img src="/images/dummy_pic.jpg" alt="" height="42px" width="42px"
-									class="border rounded-circle border-1 border-success user-profile-image dumy-img">
-								<span class="img-trial text-center text-white fw-bold">TRIAL</span>
-							</div>
-						</th:block>
-						<th:block th:unless="${allUserPlanDetailsDto.free.status eq 'active'}">
-							<div class="position-relative me-3 user-img d-flex justify-content-center">
-								<img src="/images/dummy_pic.jpg" alt="" height="42px" width="42px"
-									onclick="window.location.href = '/payments/paymentPlanGold?q=tryNow'"
-									class="border rounded-circle border-1 border-success user-profile-image dumy-img">
-
-							</div>
-						</th:block> -->
-					</div>
-				</div>
-				<div>
-					<svg id="toggle-menu" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#000000"
-						viewBox="0 0 256 256" style="cursor: pointer;">
-						<path
-							d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z">
-						</path>
-					</svg>
-
-					<div id="logout-menu" class="logout-menu"
-						style="display: none; position: absolute; background: white; border: 1px solid #ccc; padding: 10px; border-radius: 8px;">
-						<a href="/transactions/get"
-							style="display: flex; align-items: center; gap: 8px; padding: 8px; text-decoration: none; color: black;">
-							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000"
-								viewBox="0 0 256 256">
-								<path
-									d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Zm-16-24a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h32A8,8,0,0,1,208,168Zm-64,0a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,168Z">
-								</path>
-							</svg>
-							<div style="font-size: 16px;">My Transactions</div>
-						</a>
-						<a href="/logout"
-							style="display: flex; align-items: center; gap: 8px; padding: 8px; text-decoration: none; color: black;">
-							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000"
-								viewBox="0 0 256 256">
-								<path
-									d="M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z">
-								</path>
-							</svg>
-							<div style="font-size: 16px;">Logout</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-
-		    
-		
-		
-	
-	<!-- only Free ends-->
-
-
-	<!-- only Premium starts-->
-	
-	<!-- only Premium ends-->
-
-	<!-- only gold starts-->
-	
-	<!-- only gold ends-->
-
-
-
-	<!--Premium + Gold starts-->
-	
-	<!--Premium + Gold ends-->
-
-
-	<!--header models starts-->
-
-	
-
-
-
-	<!-- <th:block th:if="${allUserPlanDetailsDto.premium !=null}"> -->
-
-	
-
-	<!-- </th:block> -->
-
-
-
-
-
-	<!--Start Choose Your Plan-->
-	<!-- <div class="modal fade" id="choosePlanModal" tabindex="-1" aria-modal="true" role="dialog">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header border-0 pb-0">
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body pt-0">
-					<div class="text-center position-relative">
-						<h3 class="fw-medium my-2 pb-4 fs-4">Choose your plan</h3>
-					</div>
-
-					<th:block
-						th:if="${allUserPlanDetailsDto.gold !=null && allUserPlanDetailsDto.gold.status == 'active'}">
-
-						<div class="pe-none choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-3 border border-2 border-light-subtle p-2 position-relative">
-							<p class="position-absolute start-50 mb-0 px-2 popular rounded-2 text-white bg-primary">
-								Popular
-							</p>
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/gold-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Gold Plan<small class="d-block fw-normal fs-6">Our
-											resume experts make your resume</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>Dedicated resume writer</li>
-									<li>Onboarding call</li>
-									<li>Premium templates</li>
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-					</th:block>
-					<th:block
-						th:unless="${allUserPlanDetailsDto.gold !=null && allUserPlanDetailsDto.gold.status == 'active'}">
-
-						<div class="choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-3 border border-2 border-light-subtle p-2 position-relative"
-							onclick="window.location.href = '/payments/paymentPlanGold?q=tryNow'">
-							<p class="position-absolute start-50 mb-0 px-2 popular rounded-2 text-white bg-primary">
-								Popular
-							</p>
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/gold-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Gold Plan<small class="d-block fw-normal fs-6">Our
-											resume experts make your resume</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>Dedicated resume writer</li>
-									<li>Onboarding call</li>
-									<li>Premium templates</li>
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-					</th:block>
-
-
-					<th:block
-						th:if="${allUserPlanDetailsDto.premium !=null && allUserPlanDetailsDto.premium.status == 'active'}">
-
-						<div
-							class="pe-none choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-2 border border-2 border-light-subtle p-2">
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/grey-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Silver Plan <small class="d-block fw-normal fs-6">Get
-											a professional resume powered by AI</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-
-					</th:block>
-
-					<th:block
-						th:unless="${allUserPlanDetailsDto.premium !=null && allUserPlanDetailsDto.premium.status == 'active'}">
-
-						<div class="choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-2 border border-2 border-light-subtle p-2"
-							onclick="window.location.href = '/payments/paymentPlan'">
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/grey-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Silver Plan <small class="d-block fw-normal fs-6">Get
-											a professional resume powered by AI</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-					</th:block>
-
-				</div>
-			</div>
-		</div>
-	</div> -->
-	<!--End Choose Your Plan-->
-	<!--Start Gold Plan Modal-->
-	<div class="modal fade" id="goldPlanModal" tabindex="-1" aria-modal="true" role="dialog">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content rounded-4 border-0 bg-transparent">
-				<div class="modal-header rounded-top-4 border-bottom-0 bg-dark p-1">
-					<button type="button" class="btn-close bg-none pt-0" data-bs-dismiss="modal" aria-label="Close"
-						style="opacity: 1; background: none;">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#888888"
-							viewBox="0 0 256 256">
-							<path
-								d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z">
-							</path>
-						</svg>
-					</button>
-				</div>
-				<div class="modal-body p-0 bg-white rounded-bottom-4">
-					<div class="bg-dark text-center p-3">
-						<img src="/images/gold-banner.png" alt="" width="300">
-					</div>
-					<div class="gold-plan cursor-pointer bg-white mb-3 p-3 pb-0">
-						<h5 class="fw-medium mb-0">More about the Gold plan</h5>
-						<ul class="ps-0 border-bottom pt-2 pb-3 text-body-tertiary mb-0">
-							<li class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-									fill="#8C8C8C" viewBox="0 0 256 256" class="me-2">
-									<path
-										d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z">
-									</path>
-								</svg>Our industry experts personally create your resume for maximum
-								impact.</li>
-							<li class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-									fill="#8C8C8C" viewBox="0 0 256 256" class="me-2">
-									<path
-										d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z">
-									</path>
-								</svg>Receive direct calls from our team to discuss any updates or
-								changes.</li>
-							<li class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-									fill="#8C8C8C" viewBox="0 0 256 256" class="me-2">
-									<path
-										d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z">
-									</path>
-								</svg>From formatting to content, we handle every aspect of your
-								resume.</li>
-						</ul>
-					</div>
-					<div class="gold-plan cursor-pointer bg-white mb-4 px-3">
-						<h5 class="fw-medium mb-0">Resume Creation Process</h5>
-						<ul class="ps-0 pt-2 text-body-tertiary mb-0">
-							<li><span class="fw-medium">Step-1:</span> Receive a call from our support team to gather
-								essential
-								information about you</li>
-							<li><span class="fw-medium">Step-2:</span> Our Resume Making Experts will craft your
-								resume.</li>
-							<li><span class="fw-medium">Step-3:</span> Review the final draft of your resume.</li>
-							<li><span class="fw-medium">Step-4:</span> We'll generate your resume in all available
-								templates after your final approval.</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--End Gold Plan Modal-->
-
-
-
-	<!--header models ends-->
-
-	<!--web Header end-->
-
-
-	<script>
-		const session = {"USER_SESSION_OBJECT":{"userId":165714,"email":null,"username":null,"firstName":null,"lastName":null,"profileImage":null,"fullName":"Anish","ssoId":"4f49c800-5bbf-403a-a3c9-1de3bffdf062","mobile":8884507437}};
-		//console.log()
-
-		$(document).ready(() => {
-			if (session != null && session != undefined) {
-				if (session.USER_SESSION_OBJECT.profileImage != null && session.USER_SESSION_OBJECT.profileImage != '') {
-					$(".user-profile-image").attr('src', session.USER_SESSION_OBJECT.profileImage)
-				} else {
-					$(".user-profile-image").attr('src', '/images/dummy_pic.jpg')
-				}
-			} else {
-				$(".user-profile-image").attr('src', '/images/dummy_pic.jpg')
-			}
-
-		})
-
-
-		function showModal(modalId) {
-			$("#" + modalId).modal('show')
-		}
-	</script>
-
-	<!--web Header end-->
-
-	<div class="container-fluid">
-		<div class="row">
-			<!--web menu start-->
-			
-	<div id="sidebarMenu" class="col-12 col-md-2 d-none d-md-block p-0 bg-white pt-3 position-relative">
-		<nav class="bg-white menu-item">
-			<ul class="list-unstyled d-flex flex-column">
-				<li class="nav-item">
-					<a class="nav-link d-flex align-items-center px-2 job-alerts-link" href="/job-alerts">
-						<i class="ph ph-bell fs-5 me-2"></i>
-						<span class="d-flex align-items-center justify-content-between gap-1">
-							<span>Job Alerts</span>
-							<span class="px-2 rounded text-white small" style="background-color: #FF0000;">NEW</span>
-						</span>
-					</a>
-				</li>
-				<li class="nav-item" style="background-color: #e8f5e9;">
-					<a class="nav-link d-flex align-items-center px-2" href="/resume/dashboard">
-						<i class="ph ph-file-minus fs-5 me-2"></i>
-						<span>My Resume</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link d-flex align-items-center px-2"
-						href="https://interviewprep.myoutspark.com/common/login?session_token=165714">
-						<i class="ph ph-chats-circle fs-5 me-2"></i>
-						<span class="d-flex align-items-start">Interview Prep
-						</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link d-flex align-items-center px-2" href="https://myoutspark.com/linkedin-profile-makeover/v2?utm_source=Website"
-						rel="noopener noreferrer">
-						<i class="ph ph-linkedin-logo fs-5 me-2"></i>Profile Makeover For LinkedIn</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link d-flex align-items-center px-2" href="/linkedin-content-calendar-post-buddy">
-						<i class="ph ph-microphone fs-5 me-2"></i>
-						<span class="d-flex align-items-center gap-1">
-							<span>Post Buddy For LinkedIn</span>
-							<span>🔥</span>
-						</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link d-flex align-items-center px-2" href="/resume/profile">
-						<i class="ph ph-user-circle fs-5 me-2"></i>
-						<span>My Profile</span>
-					</a>
-				</li>
-
-				
-					<li class="nav-item">
-						<a class="nav-link d-flex align-items-center px-2" href="/resume/faq">
-							<i class="ph ph-question fs-5 me-2"></i>
-							<span>FAQ</span>
-						</a>
-					</li>
-				
-
-				
-				<li class="nav-item">
-					<a class="nav-link d-flex align-items-center px-2" href="/refer">
-						<i class="ph ph-users  fs-5 me-2"></i>
-						<span>Invite friends</span>
-					</a>
-				</li>
-				
-			</ul>
-			<a href="/refer" class="text-decoration-none text-dark">
-				<div class="refer_card  mx-2 my-3">
-					<div class="pe-3 bg_lightgreen rounded px-3 pt-4 pb-2">
-						<h5 class="fw-bold mb-1">Get 3 interview practice sessions</h5>
-						<div class="fw-semibold worth_img mb-2" style="max-width: 180px;">
-							<img src="/images/worth_webbanners.png" alt="Interview Worth" class="img-fluid" />
-						</div>
-						<p class="mb-2" style="font-size: 12px;">Share your referral link to help a friend who needs
-							a great resume</p>
-						<div class="text-primary text-decoration-underline">See Your Referral Link</div>
-					</div>
-				</div>
-			</a>
-
-			<div class="my-3">
-				
-
-				<div class="card mx-2">
-					<div class="card-body p-2">
-						<p class="fw-medium mb-2">Follow us on Social media</p>
-						<ul class="social-menus ps-0 mb-0 d-flex flex-wrap gap-2">
-
-							<li>
-								<a href="https://www.instagram.com/myoutspark/" target="_blank">
-									<img src="/images/insta-icon.png" alt="Instagram">
-								</a>
-							</li>
-							<li>
-								<a href="https://www.facebook.com/profile.php?id=61550799067449" target="_blank">
-									<img src="/images/fb-icon.png" alt="Facebook">
-								</a>
-							</li>
-							<li>
-								<a href="https://www.youtube.com/@myoutspark" target="_blank">
-									<img src="/images/yt-icon.png" alt="YouTube">
-								</a>
-							</li>
-							<li>
-								<a href="https://www.linkedin.com/company/myoutspark/" target="_blank">
-									<img src="/images/linkedin-icon.png" alt="LinkedIn">
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</div>
-
-			<!--web menu start-->
-			<div class="col-12 col-md-10 px-3">
-				
-
-	<!--web Header start-->
-
-	<!-- only Free starts-->
-	
-		
-	
-
-	
-		<button
-			class="btn btn-primary d-flex align-items-center justify-content-center mt-3 w-100 d-sm-none createResumeBtn"
-			onclick="createResume()">
-			<i class="ph ph-plus-circle me-1 fs-5"></i>New Resume
-		</button>
-		<!-- <button class="btn upgrade-premium fw-medium mt-2 text-white rounded-3 d-sm-none w-100"
-			onclick="showModal('choosePlanModal')">Upgrade</button> -->
-	
-
-	
-	<!-- only Free ends-->
-
-
-	<!-- only Premium starts-->
-	
-	<!-- only Premium ends-->
-
-	<!-- only gold starts-->
-	
-	<!-- only gold ends-->
-
-
-
-	<!--Premium + Gold starts-->
-	
-	<!--Premium + Gold ends-->
-
-
-	<!--header models starts-->
-
-	
-
-
-
-	<!-- <th:block th:if="${allUserPlanDetailsDto.premium !=null}"> -->
-
-	
-
-	<!-- </th:block> -->
-
-
-
-
-
-	<!--Start Choose Your Plan-->
-	<!-- <div class="modal fade" id="choosePlanModal" tabindex="-1" aria-modal="true" role="dialog">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header border-0 pb-0">
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body pt-0">
-					<div class="text-center position-relative">
-						<h3 class="fw-medium my-2 pb-4 fs-4">Choose your plan</h3>
-					</div>
-
-					<th:block
-						th:if="${allUserPlanDetailsDto.gold !=null && allUserPlanDetailsDto.gold.status == 'active'}">
-
-						<div class="pe-none choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-3 border border-2 border-light-subtle p-2 position-relative">
-							<p class="position-absolute start-50 mb-0 px-2 popular rounded-2 text-white bg-primary">
-								Popular
-							</p>
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/gold-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Gold Plan<small class="d-block fw-normal fs-6">Our
-											resume experts make your resume</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>Dedicated resume writer</li>
-									<li>Onboarding call</li>
-									<li>Premium templates</li>
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-					</th:block>
-					<th:block
-						th:unless="${allUserPlanDetailsDto.gold !=null && allUserPlanDetailsDto.gold.status == 'active'}">
-
-						<div class="choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-3 border border-2 border-light-subtle p-2 position-relative"
-							onclick="window.location.href = '/payments/paymentPlanGold?q=tryNow'">
-							<p class="position-absolute start-50 mb-0 px-2 popular rounded-2 text-white bg-primary">
-								Popular
-							</p>
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/gold-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Gold Plan<small class="d-block fw-normal fs-6">Our
-											resume experts make your resume</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>Dedicated resume writer</li>
-									<li>Onboarding call</li>
-									<li>Premium templates</li>
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-					</th:block>
-
-
-					<th:block
-						th:if="${allUserPlanDetailsDto.premium !=null && allUserPlanDetailsDto.premium.status == 'active'}">
-
-						<div
-							class="pe-none choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-2 border border-2 border-light-subtle p-2">
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/grey-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Silver Plan <small class="d-block fw-normal fs-6">Get
-											a professional resume powered by AI</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-
-					</th:block>
-
-					<th:block
-						th:unless="${allUserPlanDetailsDto.premium !=null && allUserPlanDetailsDto.premium.status == 'active'}">
-
-						<div class="choose-plan d-flex justify-content-between align-items-center cursor-pointer rounded-3 bg-white mb-2 border border-2 border-light-subtle p-2"
-							onclick="window.location.href = '/payments/paymentPlan'">
-							<div class="gold-list">
-								<div class="d-flex">
-									<img src="/images/grey-icon.png" alt="" width="50px" height="50px">
-									<h5 class="fw-medium mb-0 ms-2 fs-6">
-										Silver Plan <small class="d-block fw-normal fs-6">Get
-											a professional resume powered by AI</small>
-									</h5>
-								</div>
-								<ul class="ps-0 mb-0 mt-2">
-									<li>ATS friendly</li>
-									<li>Based on job description</li>
-									<li>Relevant keywords</li>
-								</ul>
-							</div>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#000000"
-									viewBox="0 0 256 256">
-									<path
-										d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
-									</path>
-								</svg></span>
-						</div>
-					</th:block>
-
-				</div>
-			</div>
-		</div>
-	</div> -->
-	<!--End Choose Your Plan-->
-	<!--Start Gold Plan Modal-->
-	<div class="modal fade" id="goldPlanModal" tabindex="-1" aria-modal="true" role="dialog">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content rounded-4 border-0 bg-transparent">
-				<div class="modal-header rounded-top-4 border-bottom-0 bg-dark p-1">
-					<button type="button" class="btn-close bg-none pt-0" data-bs-dismiss="modal" aria-label="Close"
-						style="opacity: 1; background: none;">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#888888"
-							viewBox="0 0 256 256">
-							<path
-								d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z">
-							</path>
-						</svg>
-					</button>
-				</div>
-				<div class="modal-body p-0 bg-white rounded-bottom-4">
-					<div class="bg-dark text-center p-3">
-						<img src="/images/gold-banner.png" alt="" width="300">
-					</div>
-					<div class="gold-plan cursor-pointer bg-white mb-3 p-3 pb-0">
-						<h5 class="fw-medium mb-0">More about the Gold plan</h5>
-						<ul class="ps-0 border-bottom pt-2 pb-3 text-body-tertiary mb-0">
-							<li class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-									fill="#8C8C8C" viewBox="0 0 256 256" class="me-2">
-									<path
-										d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z">
-									</path>
-								</svg>Our industry experts personally create your resume for maximum
-								impact.</li>
-							<li class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-									fill="#8C8C8C" viewBox="0 0 256 256" class="me-2">
-									<path
-										d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z">
-									</path>
-								</svg>Receive direct calls from our team to discuss any updates or
-								changes.</li>
-							<li class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-									fill="#8C8C8C" viewBox="0 0 256 256" class="me-2">
-									<path
-										d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z">
-									</path>
-								</svg>From formatting to content, we handle every aspect of your
-								resume.</li>
-						</ul>
-					</div>
-					<div class="gold-plan cursor-pointer bg-white mb-4 px-3">
-						<h5 class="fw-medium mb-0">Resume Creation Process</h5>
-						<ul class="ps-0 pt-2 text-body-tertiary mb-0">
-							<li><span class="fw-medium">Step-1:</span> Receive a call from our support team to gather
-								essential
-								information about you</li>
-							<li><span class="fw-medium">Step-2:</span> Our Resume Making Experts will craft your
-								resume.</li>
-							<li><span class="fw-medium">Step-3:</span> Review the final draft of your resume.</li>
-							<li><span class="fw-medium">Step-4:</span> We'll generate your resume in all available
-								templates after your final approval.</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--End Gold Plan Modal-->
-
-
-
-	<!--header models ends-->
-
-	
-
-				<!--Final Draft-->
-				<div class="d-md-flex gap-2">
-	<div>
-		<a href="https://myoutspark.com/linkedin-profile-makeover/v2?utm_source=Website" rel="noopener noreferrer" class="text-decoration-none">
-			<div class="linkedin-redirection-btn my-4 p-3  p-md-4">
-				<div class="d-flex gap-2  align-items-center">
-					<div>
-						<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#7ea6cd"
-							viewBox="0 0 256 256">
-							<path
-								d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM96,176a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,96a12,12,0,1,1,12-12A12,12,0,0,1,88,96Zm96,80a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140Z">
-							</path>
-						</svg>
-					</div>
-					<div class="d-flex justify-content-between align-items-center gap-3">
-						<div>
-							<h6 class="mb-0 text-black">Profile Makeover For LinkedIn</h6>
-							<p class="mb-0">Enhance Your LinkedIn Profile for Maximum Impact</p>
-						</div>
-
-						<div>
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#000000"
-								viewBox="0 0 256 256">
-								<path
-									d="M32,128a8,8,0,0,1,8-8H196.69l-58.35-58.34a8,8,0,0,1,11.32-11.32l72,72a8,8,0,0,1,0,11.32l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40A8,8,0,0,1,32,128Z">
-								</path>
-							</svg>
-						</div>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div>
-		<a href="/linkedin-content-calendar-post-buddy" rel="noopener noreferrer" class="text-decoration-none">
-			<div class="linkedin-redirection-btn my-4 p-3  p-md-4" style="background-color: #ede7ff91;">
-				<div class="d-flex gap-2  align-items-center">
-					<div>
-						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#7c5bdfed"
-							viewBox="0 0 256 256">
-							<path
-								d="M80,128V64a48,48,0,0,1,96,0v64a48,48,0,0,1-96,0Zm128,0a8,8,0,0,0-16,0,64,64,0,0,1-128,0,8,8,0,0,0-16,0,80.11,80.11,0,0,0,72,79.6V240a8,8,0,0,0,16,0V207.6A80.11,80.11,0,0,0,208,128Z">
-							</path>
-						</svg>
-					</div>
-					<div class="d-flex justify-content-between align-items-center gap-3">
-						<div>
-							<h6 class="mb-0 text-black">Post Buddy</h6>
-							<p class="mb-0">Tool to help you write, engage, network and attract opportunities better on
-								LinkedIn</p>
-						</div>
-
-						<div>
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#000000"
-								viewBox="0 0 256 256">
-								<path
-									d="M32,128a8,8,0,0,1,8-8H196.69l-58.35-58.34a8,8,0,0,1,11.32-11.32l72,72a8,8,0,0,1,0,11.32l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40A8,8,0,0,1,32,128Z">
-								</path>
-							</svg>
-						</div>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-</div>
-
-<ul class="nav nav-tabs mt-3" role="tablist">
-
-	
-
-
-		<li class="nav-item" id="premiumTab" role="presentation">
-			<button class="nav-link" id="silver-tab" data-bs-toggle="tab" data-bs-target="#silver-tab-pane"
-				type="button" role="tab" aria-controls="silver-tab-pane" aria-selected="true">
-				<!-- <img class="me-2" src="/images/grey-icon.png" alt="" width="20px"> -->
-				Trial
-			</button>
-		</li>
-
-
-	
-
-
-	
-
-
-	
-
-</ul>
-
-				<div class="d-flex align-items-center text-primary bg-primary-subtle px-3 py-1 d-none"
-					id="tempResumeReadyDivId">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1cb08f" viewBox="0 0 256 256"
-						class="me-2">
-						<path
-							d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z">
-						</path>
-					</svg>
-					Your Resume is Ready
-				</div>
-
-
-
-				<div class="tab-content">
-					<div class="tab-content">
-						<div class="tab-pane fade" id="silver-tab-pane" role="tabpanel" aria-labelledby="silver-tab"
-							tabindex="0">
-							<div class="rounded mt-4 tab-spinner rounded-top" id="tabWithData">
-								<div class="d-flex justify-content-between border bg-light rounded-top">
-									<div class="w-100">
-										<div class="scroller scroller-left scroller-left-silver"><i
-												class="ph ph-arrow-circle-left fs-5"></i>
-										</div>
-										<div class="scroller scroller-right scroller-right-silver"><i
-												class="ph ph-arrow-circle-right fs-5"></i>
-										</div>
-										<div class="wrapper_s wrapper rounded-top">
-											<ul class="nav nav-tabs list silver-list" id="resumePreviewTab"
-												role="tablist">
-											</ul>
-										</div>
-									</div>
-									<div onclick="createResume()">
-										<button
-											class="text-nowrap btn btn-primary d-flex align-items-center d-none d-sm-block mx-3 my-1">
-											<i class="ph ph-plus-circle me-2 fs-4"
-												style="vertical-align: middle;"></i>New Resume
-										</button>
-									</div>
-								</div>
-								<div class="tab-content pb-3 p-md-3 pt-md-0 border border-top-0"
-									id="resumePreviewTabContent">
-									
-								</div>
-							</div>
-						</div>
-						<div class="tab-pane fade"
-							id="gold-tab-pane" role="tabpanel" aria-labelledby="gold-tab" tabindex="0">
-							<div class="rounded mt-4 tab-spinner border rounded-top" id="tabWithDataGold">
-								<div class="scroller scroller-left scroller-left-gold"><i
-										class="ph ph-arrow-circle-left fs-5"></i></div>
-								<div class="scroller scroller-right scroller-right-gold"><i
-										class="ph ph-arrow-circle-right fs-5"></i></div>
-								<div class="wrapper_g wrapper rounded-top">
-									<ul class="nav nav-tabs list gold-list" role="tablist" id="resumePreviewTabGold">
-										
-									</ul>
-								</div>
-								<div class="tab-content pb-3 p-md-3 pt-md-0 bg-white rounded-bottom border-top"
-									id="resumePreviewTabContentGold">
-									<!-- Resume timeline -->
-
-									
-									
-										
-	<div class="tab-pane fade" id="new-resume-pane" role="tabpanel" aria-labelledby="new-resume-tab" tabindex="0">
-
-
-		<div class="resume-timeline">
-			<div class="container-fluid">
-				<div class="row w-100">
-					<div class="col-md-6">
-						<p class="fw-medium fs-6 mt-3">Resume timeline</p>
-						<div>
-							<div class="timeline-container p-3 border rounded-3">
-								<ul class="tl ps-4 mb-0">
-									<li class="is-done">
-										<div class="item-icon">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-												fill="#ffffff" viewBox="0 0 256 256">
-												<path
-													d="M243.31,90.91l-128.4,128.4a16,16,0,0,1-22.62,0l-71.62-72a16,16,0,0,1,0-22.61l20-20a16,16,0,0,1,22.58,0L104,144.22l96.76-95.57a16,16,0,0,1,22.59,0l19.95,19.54A16,16,0,0,1,243.31,90.91Z">
-												</path>
-											</svg>
-										</div>
-										<div class="item-text">
-											<div class="item-title">Our team will call you to understand your necessary
-												details of professional background.</div>
-											<div class="small fw-normal">You can expect this call within the next 2 to 6
-												business hours.
-												(Mon-Fri, 10:30 AM to 6:30 PM)</div>
-										</div>
-									</li>
-									<li class="tl-item in-progress">
-										<div class="item-icon">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-												fill="#ffffff" viewBox="0 0 256 256">
-												<path
-													d="M243.31,90.91l-128.4,128.4a16,16,0,0,1-22.62,0l-71.62-72a16,16,0,0,1,0-22.61l20-20a16,16,0,0,1,22.58,0L104,144.22l96.76-95.57a16,16,0,0,1,22.59,0l19.95,19.54A16,16,0,0,1,243.31,90.91Z">
-												</path>
-											</svg>
-										</div>
-										<div class="item-text">
-											<div class="item-title">Share your updated work experience and other
-												relevant details with our team.</div>
-											<div class="small fw-normal">(It is recommended you do this before our team
-												calls you)</div>
-											<button class="btn btn-primary mt-2 fw-medium" style="width: fit-content;"
-												onclick="shareDetailes()">
-												<svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="20"
-													height="20" fill="#ffffff" viewBox="0 0 256 256">
-													<path
-														d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0ZM93.66,77.66,120,51.31V144a8,8,0,0,0,16,0V51.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,77.66Z">
-													</path>
-												</svg>
-												Share Details
-											</button>
-											<div class="mt-2 d-none">
-												<a href="#" style="color: #39675D;">Uploaded File:
-													Vikram_Mahto_Oggy.pdf</a> <small
-													class="text-decoration-underline ms-2" href="#"
-													style="color: #1CB08F;">Edit</small>
-											</div>
-											<div class="timeline-date d-none">5 May, 7:21 PM</div>
-										</div>
-									</li>
-									<li class="tl-item">
-										<div class="item-icon">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-												fill="#ffffff" viewBox="0 0 256 256">
-												<path
-													d="M243.31,90.91l-128.4,128.4a16,16,0,0,1-22.62,0l-71.62-72a16,16,0,0,1,0-22.61l20-20a16,16,0,0,1,22.58,0L104,144.22l96.76-95.57a16,16,0,0,1,22.59,0l19.95,19.54A16,16,0,0,1,243.31,90.91Z">
-												</path>
-											</svg>
-										</div>
-										<div class="item-text">
-											<div class="item-title">We have received your information. Your resume
-												creation process has begun, Yay!</div>
-											<div class="timeline-date d-none">5 May, 7:21 PM</div>
-										</div>
-									</li>
-									<li class="tl-item">
-										<div class="item-icon">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-												fill="#ffffff" viewBox="0 0 256 256">
-												<path
-													d="M243.31,90.91l-128.4,128.4a16,16,0,0,1-22.62,0l-71.62-72a16,16,0,0,1,0-22.61l20-20a16,16,0,0,1,22.58,0L104,144.22l96.76-95.57a16,16,0,0,1,22.59,0l19.95,19.54A16,16,0,0,1,243.31,90.91Z">
-												</path>
-											</svg>
-										</div>
-										<div class="item-text">
-											<div class="item-title">Experts are reviewing the final draft of your resume
-												before sharing it with you.</div>
-											<div class="timeline-date d-none">5 May, 7:21 PM</div>
-										</div>
-									</li>
-									<li class="tl-item">
-										<div class="item-icon">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-												fill="#ffffff" viewBox="0 0 256 256">
-												<path
-													d="M243.31,90.91l-128.4,128.4a16,16,0,0,1-22.62,0l-71.62-72a16,16,0,0,1,0-22.61l20-20a16,16,0,0,1,22.58,0L104,144.22l96.76-95.57a16,16,0,0,1,22.59,0l19.95,19.54A16,16,0,0,1,243.31,90.91Z">
-												</path>
-											</svg>
-										</div>
-										<div class="item-text">
-											<div class="item-title">Your final draft is ready, kindly review.</div>
-											<button class="btn btn-primary mt-2 rounded-1 fw-medium d-none">View
-												Final Draft</button>
-										</div>
-									</li>
-								</ul>
-								<p class="text-secondary mb-0 ps-2" style="font-size: 12px;">We will inform you once
-									your resume is ready or we shall reach out, incase we need any more info.</p>
-							</div>
-						</div>
-
-					</div>
-					<div class="col-md-6 div-start-border mt-3">
-						<div class="youtube-content">
-							<p class=" fs-5 fw-medium mb-0 fs-6">How to track status of
-								my resume?</p>
-							<small class="text-secondary mb-0">Watch this video to
-								know answers <span class="ms-2"> <img src="/images/ylw-arrow.png" alt="" width="20">
-								</span>
-							</small>
-							<div class="youtube-img pt-3">
-								<iframe src="https://www.youtube.com/embed/WZq9QghNGnw?si=lKzo8sDJICtFsxib"
-									title="YouTube video" allowfullscreen style="width: 100%; height: 360px;"
-									class="rounded-3 border border-2"></iframe>
-							</div>
-						</div>
-						<a href="/refer" class="text-decoration-none text-dark">
-							<div class="refer_card mt-4 position-relative" style="margin-bottom: 90px;">
-								<div class="bg_lightgreen text-start">
-									<div class="p-3 ">
-										<h3 class="banner_heading mb-0" style="font-weight: 700;font-family:unset">Get 3
-											interview practice sessions</h3>
-										<div class="fw-semibold worth_img mb-2">
-											<img src="/images/worth_webbanners.png" alt="Interview Worth"
-												class="img-fluid" />
-										</div>
-										<p class="mb-2">Share your referral link to help a <br>friend who needs a
-											great<br> resume
-										</p>
-
-										<p class="btn btn-primary border fw-semibold my-2  px-4">
-											Know More
-										</p>
-									</div>
-									<div class="banner_img">
-										<img src="/images/banner_downimg.png" alt="" class="img-fluid">
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-
-									
-									
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- TODO -->
-					
-					<!-- Premium user resume created ends here -->
-				</div>
-			</div>
-		</div>
-		<!-- Resume created overlay -->
-		<div class="modal fade" id="resumeCreateSuccessPopup" tabindex="-1" aria-labelledby="exampleModalLabel"
-			aria-hidden="true">
-			<div class="modal-dialog modal-fullscreen">
-				<div class="modal-content bg-primary">
-					<div class="modal-body d-flex justify-content-center">
-						<div class="d-flex flex-column align-items-center justify-content-center">
-							<img src="/images/cv.png" alt="" height="100px" class="d-block">
-							<h3 class="mt-3 text-white">Your Resume is ready</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade" id="resumeCreateSuccessPopupGold" tabindex="-1" aria-hidden="true">
-			<div class="modal-dialog modal-fullscreen">
-				<div class="modal-content bg-primary">
-					<div class="modal-body d-flex justify-content-center">
-						<div class="d-flex flex-column align-items-center justify-content-center">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff"
-								viewBox="0 0 256 256">
-								<path
-									d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z">
-								</path>
-							</svg>
-							<h3 class="mt-3 text-white">Your crafted resume is ready.</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<a class="scroll-to-top rounded" href="#page-top"><i class="ph ph-arrow-up"></i></a>
-		<div><div class="modal rs_modal show" id="paymentModal" data-keyboard="false" data-backdrop="static" aria-modal="true"
-	role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content paymentCard">
-			<div class="modal-header" style="background:transparent; border: none;">
-				<a href="javascript:void(0)" onclick="closeModal('paymentModal')" class="CloseBtn2" data-dismiss="modal" aria-label="Close">
-					<img src="/images/closefill-icon.png" alt="">
-				</a>
-			</div>
-
-			<!-- Modal body -->
-			<div class="modal-body text-center" style="padding: 5px;">
-				<div class="row1">
-					<p class="cutText">₹6000</p>
-					<p class="saveText">SAVE 84%</p>
-				</div>
-				<p class="boldrupee"><span style="font-weight: bold; font-family: arial;">₹</span>1599</p>
-				<p class="small text14 m-0" style="margin-top: -12px !important;">Save ₹4,401</p>
-				<hr>
-				<div class="row2">
-					<span>Top Features</span>
-					<p class="mt-3"><i class="ph ph-check"></i> 10 Resume + Bonus </p>
-					<p><i class="ph ph-check"></i> Unlimited Edits </p>
-					<p><i class="ph ph-check"></i> 10 Premium Templates</p>
-				</div>
-				<img src="/images/paymentCard.png" class="paymentCardImg" alt="">
-				<a href="/payments/select-payment" class="get_start_btn">Get Started</a>
-			</div>
-		</div>
-	</div>
-</div></div>
-
-		<div class="modal-loader">
-			<div class="loader-content">
-				<img src="/images/star.gif" alt="Loading..." />
-			</div>
-		</div>
-
-
-		<!-- /////////////////// -->
-		<div id="notificationContainer" class="notification"></div>
-
-		<div class="modal text-dark rounded-lg" data-keyboard="false" data-backdrop="static" aria-modal="true" role="dialog"
-	style="display: none;" id="pdfdocmodal">
-
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content" style="border-radius: 12px;">
-
-			<div class="modal-header justify-content-between pb-0 pt-1 border-0">
-				<button type="button" id="backBtn" class="btn btn-ghost text-dark align-items-center"
-					style="visibility: hidden;">
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#000000" viewBox="0 0 256 256">
-						<path
-							d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
-						</path>
-					</svg>Back</button>
-				<button type="button" class="btn btn-close modal-custom-close"
-					onclick="closeModal('pdfdocmodal'); closeDocModal();" data-bs-dismiss="modal" aria-label="Close">
-				</button>
-			</div>
-			<div class="modal-body">
-				<input type="text" id="pdfToDocRid" class="d-none" />
-				<input type="text" id="pdfToDocTid" class="d-none" />
-				<div id="downloadAsButtons" class="text-center pb-3">
-					<button id="downloadAsPdf" class="btn btn-primary border w-100 mb-3"
-						onclick="downloadPdf(); closeModal('pdfdocmodal')">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff"
-							viewBox="0 0 256 256">
-							<path
-								d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z">
-							</path>
-						</svg>
-						Download as PDF
-					</button>
-					<!-- DOCX button - only for Gold users with compatible templates -->
-					<button id="downloadAsDocx" class="btn btn-primary border w-100 mb-3" style="display: none;">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000"
-							viewBox="0 0 256 256">
-							<path
-								d="M200,24H72A16,16,0,0,0,56,40V64H40A16,16,0,0,0,24,80v96a16,16,0,0,0,16,16H56v24a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V40A16,16,0,0,0,200,24Zm-40,80h40v48H160ZM72,40H200V88H160V80a16,16,0,0,0-16-16H72ZM40,80H144v79.83c0,.06,0,.11,0,.17s0,.11,0,.17V176H40ZM72,216V192h72a16,16,0,0,0,16-16v-8h40v48Zm-3.76-62.06-12-48a8,8,0,1,1,15.52-3.88l6.76,27,6.32-12.66a8,8,0,1,1,14.32,0l6.32,12.66,6.76-27a8,8,0,1,1,15.52,3.88l-12,48a8,8,0,0,1-6.89,6,8.46,8.46,0,0,1-.87.05,8,8,0,0,1-7.16-4.42L92,137.89l-8.84,17.69a8,8,0,0,1-14.92-1.64Z">
-							</path>
-						</svg>
-						Download as Docx</button>
-					<button id="downloadAsText" class="btn btn-light border w-100">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000"
-							viewBox="0 0 256 256">
-							<path
-								d="M208,56V88a8,8,0,0,1-16,0V64H136V192h24a8,8,0,0,1,0,16H96a8,8,0,0,1,0-16h24V64H64V88a8,8,0,0,1-16,0V56a8,8,0,0,1,8-8H200A8,8,0,0,1,208,56Z">
-							</path>
-						</svg>
-						Download as Text File
-					</button>
-				</div>
-				<div id="docx-content" class="rounded p-3 "
-					style="background-color: #F1F1F1; font-size: 14px; display: none;">
-					<p class="text-center text-dark px-2 py-1" style="background-color: #FFF9E4;">
-						OutSpark will soon have Download as a Word file feature.</p>
-					<h5 style="font-size: 14px;" class="fw-bold">Here is an alternate way to help you get a word file
-					</h5>
-					<p class="mb-0">Visit <a href="https://www.ilovepdf.com/pdf_to_word"
-							class="text-decoration-underline" target="_blank"
-							rel="noopener noreferrer">https://www.iLovePDF.com</a> & follow
-						these steps</p>
-					<ol style="padding-inline-start: 15px;">
-						<li>Select option <strong>PDF to Word</strong></li>
-						<li>Click on <strong>Select PDF File</strong> and upload your OutSpark resume in PDF format</li>
-						<li>Click on <strong>Convert to WORD</strong> option</li>
-						<li>Wait for conversion & Download WORD file</li>
-					</ol>
-					<p>While editing a word file, some document formatting may be lost</p>
-					<a href="https://www.ilovepdf.com/pdf_to_word" class="btn btn-success border-dark" target="_blank"
-						rel="noopener noreferrer" style="display: flex;
-                            max-width: fit-content; margin: 0 auto;">Visit iLovePDF</a>
-					<p class="text-center mt-3 mb-0">OutSpark is in no way associated with iLovePDF</p>
-				</div>
-				<div id="text-content" class="rounded p-3"
-					style="background-color: #F1F1F1; font-size: 14px;display: none;">
-					<h5 style="font-size: 14px;" class="fw-bold">Your resume will appear differently in text file.
-					</h5>
-					<p>
-						Text file is provided to help you use the content for a new resume. Please note that visual
-						details will be lost.
-					</p>
-					<p>Text files do not support same design elements as PDFs. For an uninterrupted visual experience,
-						we recommend downloading your resume in PDF.</p>
-					<button onclick="downloadTextFile()" class="btn btn-primary border border-dark w-100">Download Text
-						File</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script>
-		$('#downloadAsDocx').click(function () {
-			downloadDocx();
-		})
-
-		$('#downloadAsText').click(function () {
-			$('#docx-content').hide();
-			$("#backBtn").css('visibility', 'visible')
-			$('#text-content').show();
-			$("#downloadAsPdf").hide();
-			$("#downloadAsDocx").hide();
-		})
-
-		$('#backBtn').click(onBack)
-
-		function onBack() {
-			$('#docx-content').hide();
-			$('#text-content').hide();
-			$("#downloadAsPdf").show();
-			$("#downloadAsText").show();
-			$("#backBtn").css('visibility', 'hidden')
-			
-			// Maintain DOCX button visibility based on plan type and template compatibility
-			let resumeId = $("#pdfToDocRid").val();
-			let templateId = $("#pdfToDocTid").val();
-			
-			if (planDetails.planType == 'gold' && resumeId && templateId) {
-				const docxCompatibleTemplates = [13, 6, 2, 19, 34, 41, 42, 7, 18, 35];
-				if (docxCompatibleTemplates.includes(parseInt(templateId))) {
-					$("#downloadAsDocx").show();
-				} else {
-					$("#downloadAsDocx").hide();
-				}
-			} else {
-				$("#downloadAsDocx").hide();
-			}
-		}
-
-		function closeDocModal() {
-			$('#pdfdocmodal').modal('hide');
-		}
-
-
-		$('#pdfdocmodal').on('hide.bs.modal', function (e) {
-			onBack()
-		});
-
-		$('#pdfdocmodal').on('show.bs.modal', function (e) {
-			// Ensure DOCX button is hidden by default when modal opens
-			// It will be shown/hidden in openPdfToDocModal based on plan type and template compatibility
-			$("#downloadAsDocx").hide();
-		});
-
-		function downloadTextFile() {
-			let resumeId = $("#pdfToDocRid").val();
-			let url = '/api/resume/downloadTextFile?resumeId=' + resumeId
-			let a = document.createElement("a");
-			a.href = url;
-			a.click()
-		}
-
-
-		function openPdfToDocModal(resumeId, templateId) {
-			console.log("openPdfToDocModal called with resumeId:", resumeId, "templateId:", templateId, "planType:", planDetails.planType);
-			
-			if (planDetails.planType == 'free') {
-				window.location.href = "/payments/paymentPlan?q=download";
-			} else {
-				$("#pdfToDocRid").val(resumeId)
-				$("#pdfToDocTid").val(templateId)
-				
-				// Show/hide DOCX button based on plan type and template compatibility
-				if (planDetails.planType == 'gold') {
-					const docxCompatibleTemplates = [13, 6, 2, 19, 34, 41, 42, 7, 18, 35];
-					console.log("Checking template compatibility for Gold user. Template ID:", templateId, "Compatible templates:", docxCompatibleTemplates);
-					
-					if (docxCompatibleTemplates.includes(parseInt(templateId))) {
-						console.log("Template is DOCX compatible, showing DOCX button");
-						$("#downloadAsDocx").show();
-					} else {
-						console.log("Template is not DOCX compatible, hiding DOCX button");
-						$("#downloadAsDocx").hide();
-					}
-				} else {
-					// Silver plan users - no DOCX access
-					console.log("User has Silver plan, hiding DOCX button");
-					$("#downloadAsDocx").hide();
-				}
-				
-				$("#pdfdocmodal").modal("show")
-			}
-		}
-
-		function downloadPdf() {
-			let resumeId = $("#pdfToDocRid").val();
-			let templateId = $("#pdfToDocTid").val();
-
-			showLoader()
-			$("#pdfdocmodal").modal("hide")
-			$.ajax({
-				url: '/api/resume/getPdfUrl?resumeId=' + resumeId + '&templateId=' + templateId,
-				method: 'GET',
-				contentType: 'application/json',
-				success: function (response) {
-					// Handle the response data
-					console.log(response);
-					$('#template-container' + templateId).removeClass("blurred")
-					$('.select_loader').hide()
-					hideLoader()
-					if (response.status == 200) {
-						window.location.href = response.body.pdfUrl;
-					} else if (response.status == 406) {
-						window.location.href = "/payments/paymentPlan?q=download";
-					}
-
-				},
-				error: function (xhr, status, error) {
-					// Handle error
-					console.log('An error occurred: ' + error);
-				}
-			});
-
-		}
-
-		function downloadDocx() {
-			let resumeId = $("#pdfToDocRid").val();
-			let templateId = $("#pdfToDocTid").val();
-			
-			console.log("downloadDocx called with resumeId:", resumeId, "templateId:", templateId, "planType:", planDetails.planType);
-
-			// Check if user has Gold plan
-			if (planDetails.planType != 'gold') {
-				console.log("User does not have Gold plan, redirecting to payment");
-				hideLoader();
-				window.location.href = "/payments/paymentPlan?q=download";
-				return;
-			}
-
-			// Check if template is DOCX compatible
-			const docxCompatibleTemplates = [13, 6, 2, 19, 34, 41, 42, 7, 18, 35];
-			console.log("Checking template compatibility. Template ID:", templateId, "Compatible templates:", docxCompatibleTemplates);
-			
-			if (!docxCompatibleTemplates.includes(parseInt(templateId))) {
-				console.log("Template is not DOCX compatible");
-				alert("This template does not support DOCX conversion. Please select a different template.");
-				hideLoader();
-				return;
-			}
-
-			console.log("Template is DOCX compatible, proceeding with download");
-			showLoader();
-			
-			// For DOCX download, navigate directly to the download URL
-			// This will trigger the browser's file download mechanism
-			let downloadUrl = '/api/resume/getDocxUrl?resumeId=' + resumeId + '&templateId=' + templateId;
-			
-			// Show loader and start download
-			console.log("Starting DOCX download...");
-			
-			// Use a timeout to hide loader after download starts
-			// This gives user feedback that download is in progress
-			setTimeout(() => {
-				hideLoader();
-			}, 7000); // Extended to 7 seconds
-			
-			window.location.href = downloadUrl;
-		}
-
-	</script>
-
-</div>
-		<div class="modal sucess_modal" id="resumeCreateSuccessPopup" style="display: none !important;">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<!-- Modal body -->
-			<div class="modal-body text-center" style="position: relative;">
-				<div class="quick_modal cssanimation sequence fadeInBottom">
-					<p><img src="/images/cv.png" alt="" class="success_cv"></p>
-					<h3 class="mt-3 text-white">Your Resume is ready</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-		<!-- Premium modal -->
-		<footer style="background:#ECECF1;" class="footer py-2 my-3">
-	<div class="container text-center">
-		<ul class="mb-0">
-			<li class="me-3">
-				<a href="/terms-condition" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
-			</li>
-			<li>
-				<a href="/privacy-policy" target="_blank" rel="noopener noreferrer"><span class="pe-3">|</span>Privacy
-					Policy</a>
-			</li>
-		</ul>
-	</div>
-</footer>
-	</div>
-
-	
-  <div class="modal fade " id="upgradeNowModalEdit" tabindex="-1" aria-labelledby="upgradeNowModalEditLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered mx-auto" style="width: 350px">
-      <div class="modal-content text-center">
-        <div class="modal-header border-0 pb-0">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body py-0 pt-2">
-          To edit, view, or download the complete template, upgrade to our Gold Plan.
-        </div>
-
-        <div class="modal-footer justify-content-center border-0">
-          <a href="/payments/paymentPlanGold?q=edit" class="btn btn-primary w-100">Upgrade Now</a>
-        </div>
+<body>
+  <div class="topbar">
+    <nav class="site-shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#top"><span class="brand-mark">AA</span><span>Anish Abraham</span></a>
+      <div class="nav-links">
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
       </div>
-    </div>
+    </nav>
   </div>
 
-	
-  <div class="modal fade " id="upgradeNowModalNewResume" tabindex="-1" aria-labelledby="upgradeNowModalNewResumeLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered mx-auto" style="width: 350px">
-      <div class="modal-content text-center">
-        <div class="modal-header border-0 pb-0">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="page" id="top">
+    <header class="header">
+      <div class="hero-copy">
+        <p class="eyebrow">Resume Profile</p>
+        <h1>Anish Abraham</h1>
+        <p class="role">Senior Infrastructure Engineer</p>
+        <p class="hero-summary">Windows, VMware, Azure, AWS, automation, monitoring, and ITIL-focused infrastructure engineer building secure and reliable enterprise platforms.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:anish.abraham-a@capgemini.com">Contact Me</a>
+          <a class="btn btn-ghost" href="#experience">View Experience</a>
         </div>
-        <div class="modal-body py-0 pt-2">
-          <!-- <th:block th:if="${silverFlowFlag or goldFlowFlag}">
-            To create a new resume, upgrade to our Silver Plan.
-          </th:block>
-          <th:block th:unless="${silverFlowFlag or goldFlowFlag}">
-            To create a new resume, upgrade to our Gold Plan.
-          </th:block> -->
-
-          To create a new resume, upgrade to our Gold Plan.
-
-        </div>
-        <div class="modal-footer justify-content-center border-0">
-          <a href="/payments/paymentPlanGold?q=tryNow" class="btn btn-primary w-100">Upgrade Now</a>
+        <div class="hero-stats" aria-label="Career highlights">
+          <div class="stat"><strong>12+ yrs</strong><span>Infrastructure operations</span></div>
+          <div class="stat"><strong>Azure</strong><span>AZ-104 certified</span></div>
+          <div class="stat"><strong>ITIL</strong><span>Incident, change & problem</span></div>
         </div>
       </div>
+      <div class="contact-card" aria-label="Personal details">
+        <h2>Personal Details</h2>
+        <ul class="contact-list">
+          <li>📞 +91-8884507437</li>
+          <li>✉️ anish.abraham-a@capgemini.com</li>
+          <li>📍 Bengaluru, India</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="content">
+      <aside>
+        <section class="card objective">
+          <h2>Career Objective</h2>
+          <p>
+            Dedicated IT professional with extensive experience in Windows and VMware environments seeking an Analyst position to leverage expertise in automation, infrastructure management, and security for enhanced operational efficiency and stability within a dynamic IT organization. Aims to apply proven problem-solving skills and ITIL framework knowledge to contribute to innovative solutions and drive continuous service improvement.
+          </p>
+        </section>
+
+        <section id="skills">
+          <h2>Technical Skills</h2>
+          <ul class="pill-list">
+            <li>VMware vSphere</li>
+            <li>Windows Server</li>
+            <li>Active Directory</li>
+            <li>PowerShell</li>
+            <li>ServiceNow</li>
+            <li>Terraform</li>
+            <li>GPO</li>
+            <li>CyberArk</li>
+            <li>ITIL Framework</li>
+            <li>SCCM</li>
+            <li>HPSA</li>
+            <li>UCS</li>
+            <li>SCOM</li>
+          </ul>
+        </section>
+
+        <section class="two-col">
+          <div>
+            <h2>Soft Skills</h2>
+            <ul class="simple-list">
+              <li>Communication</li>
+              <li>Problem-Solving</li>
+              <li>Collaboration</li>
+              <li>Documentation</li>
+              <li>Adaptability</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Hobbies</h2>
+            <ul class="simple-list">
+              <li>Technology</li>
+              <li>Automation</li>
+              <li>Problem-solving</li>
+              <li>Documentation</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Core Competencies</h2>
+          <ul class="simple-list">
+            <li>Infrastructure Management</li>
+            <li>Automation &amp; Scripting</li>
+            <li>System Administration</li>
+            <li>Security Management</li>
+            <li>Incident Management</li>
+          </ul>
+        </section>
+
+        <section class="card education" id="education">
+          <h2>Education</h2>
+          <p><strong>Bachelor of Science in Mathematics</strong>Sree Narayana Guru College, Bharathiyar University</p>
+          <p>2012</p>
+        </section>
+
+        <section class="card certifications">
+          <h2>Certifications</h2>
+          <p><strong>Microsoft Certified: Azure Administrator Associate</strong>AZ-104</p>
+          <p><strong>ServiceNow Certified System Administrator</strong></p>
+          <p><strong>ITIL Foundation</strong>Change, Incident, and Problem Management</p>
+        </section>
+      </aside>
+
+      <main>
+        <section class="card summary" id="summary">
+          <h2>Professional Summary</h2>
+          <p>
+            Versatile IT Analyst with extensive experience managing and optimizing Windows and VMware infrastructure environments. Proficient in automation and scripting using PowerShell, Terraform, and other tools to streamline IT operations and enhance security. Skilled in Active Directory, Group Policy, TLS/SSL, IPSec, SCOM, Dynatrace, WinDbg, ServiceNow, BMC Remedy, JIRA, Jenkins, GitHub, and basic SQL querying. Experienced with Cisco UCS Manager, IBM Bluemix, OpenStack, Veritas Volume Manager, Azure, AWS, Azure Arc, AWS Systems Manager, and CloudWatch to maintain landing zone guardrails, orchestrate patching and compliance, and meet SLA, RPO, and RTO targets.
+          </p>
+          <div class="highlight-grid" aria-label="Profile highlights">
+            <div class="highlight"><strong>Infrastructure</strong><span>Windows Server, VMware vSphere, UCS, RDSH, DNS, DHCP, storage, and enterprise operations.</span></div>
+            <div class="highlight"><strong>Automation</strong><span>PowerShell, Terraform, GitHub pipelines, patch orchestration, and repeatable IaC environments.</span></div>
+            <div class="highlight"><strong>Reliability</strong><span>SCOM, Azure Monitor, Log Analytics, CloudWatch, RCA, SOPs, and SLA-focused service improvement.</span></div>
+          </div>
+        </section>
+
+        <section id="experience">
+          <h2>Work Experience</h2>
+          <div class="timeline">
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <h3>Server Administrator</h3>
+                  <p class="company">Tata Consultancy Services (TCS), Bengaluru</p>
+                </div>
+                <p class="date">Feb 2019 - May 2026</p>
+              </div>
+              <p class="subhead">Work Done</p>
+              <ul class="bullet-list">
+                <li>Administered and maintained Windows Server environments from 2008 to 2019, ensuring performance, security, and availability.</li>
+                <li>Implemented security policies using AGPMC and CIS/NIST benchmarks, and managed GPOs across PAT to PROD environments with AGPM version control.</li>
+                <li>Configured servers, DNS, DHCP, network settings, UCS drivers, RDSH, and RD Licensing to meet business access and performance needs.</li>
+                <li>Executed vCPU, vRAM, and disk capacity adjustments using Terraform, vCenter, Veritas Volume Manager, and UCS Manager.</li>
+                <li>Decommissioned physical and virtual servers, updated ServiceNow CMDB records, and released storage safely.</li>
+                <li>Operated cloud VM workloads, storage, and networking with Azure ExpressRoute, AWS VPN, Azure Backup, and Recovery Services Vaults.</li>
+                <li>Used Azure Arc, Azure Monitor, Log Analytics, and AWS SSM to monitor capacity, cost baselines, and CPU or memory hotspots.</li>
+                <li>Built repeatable Infrastructure-as-Code environments and automated patch orchestration with Terraform and GitHub pipelines.</li>
+                <li>Managed shared folders, group permissions, ACLs, CipherTrust access, SCOM onboarding, Avamar clients, and agent upgrades for DLP, CrowdStrike, and DCA clients.</li>
+                <li>Diagnosed BSOD issues using WinDbg and memory dump analysis while following ITIL incident and problem management practices.</li>
+                <li>Authored SOPs, delivered knowledge transfer sessions, mentored junior engineers, and led critical incident triage and RCA activities.</li>
+              </ul>
+              <p class="subhead">Achievements</p>
+              <ul class="bullet-list">
+                <li>Improved server security posture by implementing CIS/NIST benchmark controls.</li>
+                <li>Streamlined resource allocation through Terraform and vCenter capacity adjustments.</li>
+                <li>Enhanced observability by enabling SCOM monitoring for new servers.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <h3>Application Management</h3>
+                  <p class="company">Wipro Technologies, Bengaluru</p>
+                </div>
+                <p class="date">Jun 2013 - Aug 2015</p>
+              </div>
+              <p class="subhead">Work Done</p>
+              <ul class="bullet-list">
+                <li>Provided proactive and reactive support for critical banking applications for US Bank customers in a globally distributed infrastructure.</li>
+                <li>Used Gomez, Wily Introscope, Netcool, CA Workload Center, and HP Sitescope to monitor application and server performance.</li>
+                <li>Resolved failed transactions by analyzing Audit and CC logs, engaging stakeholders to minimize downtime.</li>
+                <li>Troubleshot Autosys job failures on Windows servers using CA Workload Automation tools, including reruns and root cause analysis.</li>
+                <li>Monitored network devices and server endpoints, investigated LAN/WAN faults, and tuned system and network resources to prevent outages.</li>
+                <li>Analyzed IIS logs, syslogs, Event Viewer, and performance metrics while providing L2 application and infrastructure support.</li>
+              </ul>
+              <p class="subhead">Achievements</p>
+              <ul class="bullet-list">
+                <li>Maintained acceptable application and infrastructure availability through timely alert and incident resolution.</li>
+                <li>Helped reduce downtime by addressing transaction failures and documenting root cause analysis.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <h3>Project Engineer - Server Administrator</h3>
+                  <p class="company">Wipro Technologies, Bengaluru</p>
+                </div>
+                <p class="date">Mar 2013 - Jan 2019</p>
+              </div>
+              <p class="subhead">Work Done</p>
+              <ul class="bullet-list">
+                <li>Supported UK Bank customers by maintaining server and user network infrastructure within defined SLAs.</li>
+                <li>Installed monthly patches using Landesk, SCCM, and HPSA to mitigate security vulnerabilities.</li>
+                <li>Resolved Windows Update issues by analyzing WindowsUpdate.log, resetting update components, and addressing WUA/WSUS synchronization errors.</li>
+                <li>Diagnosed BSOD issues through WinDbg memory dump analysis to identify faulty drivers and kernel-level issues.</li>
+                <li>Resolved hardware issues through ILO and RDP, and coordinated vendor repairs through email and IBM Service Tool.</li>
+                <li>Used IIS logs, syslogs, Event Viewer, and server commands to resolve network and server failures.</li>
+                <li>Managed incidents, service requests, problem records, RCA documentation, and formal change requests with minimal service disruption.</li>
+                <li>Participated in service improvement plans and infrastructure stability initiatives.</li>
+              </ul>
+              <p class="subhead">Achievements</p>
+              <ul class="bullet-list">
+                <li>Supported consistent application of security patches across systems.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </main>
     </div>
+
+    <footer>
+      Resume profile built as a clean, responsive single-page HTML document.
+    </footer>
   </div>
-
-	<div>
-    <!-- Feedback Modal -->
-    <div class="feedback_emog" onclick="showFeedbackModal()">
-        <span>😄</span>
-    </div>
-    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="feedbackModal" tabindex="-1"
-        aria-labelledby="feedbackModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body p-md-4">
-                    <div class="card border-0">
-                        <div class="card-body pb-0">
-                            <span class="close_icon" onclick="closeRatingModal('feedbackModal')">
-                                <i class="ph ph-x-circle"></i>
-                            </span>
-                            <h4 class="mb-2 text-center" style="font-weight: 500;"> 👋 Rate Your Experience</h4>
-
-                            <div class="mt-4 mb-5">
-                                <div class="d-flex gap-2 justify-content-between align-items-center star_rating">
-                                    <svg class="star" data-rating="1" xmlns="http://www.w3.org/2000/svg" width="60"
-                                        height="60" viewBox="0 0 256 256">
-                                        <path
-                                            d="M128,189.09l54.72,33.65a8.4,8.4,0,0,0,12.52-9.17l-14.88-62.79,48.7-42A8.46,8.46,0,0,0,224.27,94L160.36,88.8,135.74,29.2a8.36,8.36,0,0,0-15.48,0L95.64,88.8,31.73,94a8.46,8.46,0,0,0-4.79,14.83l48.7,42L60.76,213.57a8.4,8.4,0,0,0,12.52,9.17Z"
-                                            fill="#E5E5E5" stroke="currentColor" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="0" />
-                                    </svg>
-                                    <svg class="star" data-rating="2" xmlns="http://www.w3.org/2000/svg" width="60"
-                                        height="60" viewBox="0 0 256 256">
-                                        <path
-                                            d="M128,189.09l54.72,33.65a8.4,8.4,0,0,0,12.52-9.17l-14.88-62.79,48.7-42A8.46,8.46,0,0,0,224.27,94L160.36,88.8,135.74,29.2a8.36,8.36,0,0,0-15.48,0L95.64,88.8,31.73,94a8.46,8.46,0,0,0-4.79,14.83l48.7,42L60.76,213.57a8.4,8.4,0,0,0,12.52,9.17Z"
-                                            fill="#E5E5E5" stroke="currentColor" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="0" />
-                                    </svg>
-                                    <svg class="star" data-rating="3" xmlns="http://www.w3.org/2000/svg" width="60"
-                                        height="60" viewBox="0 0 256 256">
-                                        <path
-                                            d="M128,189.09l54.72,33.65a8.4,8.4,0,0,0,12.52-9.17l-14.88-62.79,48.7-42A8.46,8.46,0,0,0,224.27,94L160.36,88.8,135.74,29.2a8.36,8.36,0,0,0-15.48,0L95.64,88.8,31.73,94a8.46,8.46,0,0,0-4.79,14.83l48.7,42L60.76,213.57a8.4,8.4,0,0,0,12.52,9.17Z"
-                                            fill="#E5E5E5" stroke="currentColor" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="0" />
-                                    </svg>
-                                    <svg class="star" data-rating="4" xmlns="http://www.w3.org/2000/svg" width="60"
-                                        height="60" viewBox="0 0 256 256">
-                                        <path
-                                            d="M128,189.09l54.72,33.65a8.4,8.4,0,0,0,12.52-9.17l-14.88-62.79,48.7-42A8.46,8.46,0,0,0,224.27,94L160.36,88.8,135.74,29.2a8.36,8.36,0,0,0-15.48,0L95.64,88.8,31.73,94a8.46,8.46,0,0,0-4.79,14.83l48.7,42L60.76,213.57a8.4,8.4,0,0,0,12.52,9.17Z"
-                                            fill="#E5E5E5" stroke="currentColor" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="0" />
-                                    </svg>
-                                    <svg class="star" data-rating="5" xmlns="http://www.w3.org/2000/svg" width="60"
-                                        height="60" viewBox="0 0 256 256">
-                                        <path
-                                            d="M128,189.09l54.72,33.65a8.4,8.4,0,0,0,12.52-9.17l-14.88-62.79,48.7-42A8.46,8.46,0,0,0,224.27,94L160.36,88.8,135.74,29.2a8.36,8.36,0,0,0-15.48,0L95.64,88.8,31.73,94a8.46,8.46,0,0,0-4.79,14.83l48.7,42L60.76,213.57a8.4,8.4,0,0,0,12.52,9.17Z"
-                                            fill="#E5E5E5" stroke="currentColor" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="0" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 pe-0">
-                                <button class="btn mt-2 w-100 remind_later"
-                                    style="text-transform: none; border: 1px #E5E5E5 solid; font-weight:500"
-                                    onclick="closeRatingModal('feedbackModal')">
-                                    Remind Me Later
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn btn-primary mt-2 w-100 shareFeedbackBtn text-light"
-                                    style="text-transform: none;" onclick="shareFeedback()" disabled>Next</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="feedbackRatingModal" tabindex="-1"
-        aria-labelledby="feedbackRatingModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body p-md-4">
-                    <div class="card border-0">
-                        <div class="card-body p-0">
-                            <div class="sad_emoji">😔</div>
-                            <h4 class="mb-2 text-center" style="font-weight: 500;font-size: 20px;">We're Sorry to Hear
-                                This!</h4>
-                            <h6 class="text-center mb-4 text-center mb-3"
-                                style="color: #4A4548;font-weight: 400;font-size: 14px;">
-                                We apologize that our service didn't meet your expectations. Please share your feedback
-                                or let us know the issue you're facing so we can improve.
-                            </h6>
-                        </div>
-                        <div class="feedback_input mb-2">
-                            <div style="position: relative;">
-                                <textarea class="form-control " id="feedbackTextarea"
-                                    placeholder="Please Share your feedback"
-                                    style="height: 150px; resize: none;"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="wordCount" style="font-size: 12px;color: #B2B2B2;padding: 0 2px;text-align: right;">
-                        0/500
-                    </div>
-                    <div class="d-flex justify-content-end gap-3 mt-3">
-                        <div>
-                            <button class="btn mt-2 do_later"
-                                style="text-transform: none; border: 1px #E5E5E5 solid; font-weight: 500;font-size: 14px;"
-                                onclick="closeRatingModal('feedbackRatingModal')">Will do later</button>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary mt-2 px-3" style="text-transform: none;font-size: 14px"
-                                onclick="sendFeedbackWithTxt()">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="feedbackThankyouModal" tabindex="-1"
-        aria-labelledby="feedbackThankyouModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body p-md-4">
-                    <div class="card border-0">
-                        <div class="card-body p-0">
-                            <h4 id="thankyouTitle" class="mb-2 text-center" style="font-weight: 600;">
-                                Thank you for your feedback
-                            </h4>
-                            <h6 id="thankyouMsg" class="text-center mb-0 text-center mb-3"
-                                style="color: #909090;font-weight: 400;">
-                                Our team will contact you within the next 2 to 5 working days.
-                            </h6>
-                        </div>
-                        <div class="w-50  mx-auto text-center mb-2">
-                            <button class="btn btn-primary mt-2 w-75" style="text-transform: none;"
-                                onclick="closeThankyou()">Ok</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="positiveReview" tabindex="-1"
-        aria-labelledby="feedbackThankyouModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body p-md-4">
-                    <div class="card border-0">
-                        <div class="card-body p-0">
-                            <h4 class="mb-3 text-center" style="font-weight: 600;">Thank You for Your Positive Feedback!
-                            </h4>
-                            <h5 class="text-center mb-0 text-center mb-2" style="font-weight: 600;">
-                                Could You Rate Us on <img src="/img/Google_Logo.png" style="width: 62px;" /> ?</h5>
-                            <h6 class="text-center mb-0 text-center mb-3" style="color: #666666;font-weight: 400;">We'd
-                                really appreciate if you could take a moment to leave us a review!</h6>
-                        </div>
-                        <div class="d-flex justify-content-center gap-3">
-                            <div>
-                                <button class="btn mt-2 do_later"
-                                    style="text-transform: none; border: 1px #E5E5E5 solid;font-size: 14px"
-                                    onclick="closeRatingModal('positiveReview')">Will do later</button>
-                            </div>
-                            <div>
-                                <a href="https://search.google.com/local/writereview?placeid=ChIJq6pqp1QfDTkRIoi6sc55MW0" id="positiveReviewCard" onclick="doPositiveRating()"
-                                    target="_blank" class="btn btn-primary mt-2 px-3"
-                                    style="text-transform: none;font-size: 14px">
-                                    Rate Us on Google
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-	<script src="/plugins/bootstrap/bootstrap.bundle.min.js"></script>
-	<script>
-		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-	</script>
-	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-	<script src="/js/sb-admin-2.min.js"></script>
-	<script src="/js/notification.js"></script>
-	<script src="/js/payment.js"></script>
-	<script src="/js/retryBonus.js"></script>
-	<script>
-		window.silverFlowFlag = false;
-		window.goldFlowFlag = false;
-		window.linkedinHacksUrl = null;
-		window.dashboardTabContext = "trial";
-		window.silverTabIsTrial = true;
-	</script>
-	<script src="/js/newDashboardUI.js"></script>
-	<script src="/js/feedback.js"></script>
-
-
-	<script>
-		var resumeList = [{"_id":"68949c7fd341566d8ced342d","userId":165714,"fullName":null,"firstName":null,"lastName":null,"phoneNumber":"+91-8884507437","dateOfBirth":null,"profileImage":null,"email":"anishabraham031@gmail.com","location":null,"totalExperience":null,"resumeId":167269,"referenceNo":null,"resumeText":null,"jobDescription":null,"role":"Windows, vmware, ucs and terraform admin","company":"INFOSYS","aiResume":{"role":null,"company":null,"resumeId":0,"firstName":null,"lastName":null,"email":"anishabraham031@gmail.com","phoneNumber":"+91-8884507437","dateOfBirth":"31-08-1990","profileImage":null,"fullName":"Anish Abraham","experience":[{"organization":"Tata Consultancy Services (TCS)","role":"Server Administrator","startDate":"Feb 2019","endDate":"present","workDone":["Administered Windows Servers (2008-2019), encompassing installation, configuration, and performance optimization aligned with security baselines.","Proficiently managed Group Policy Objects (GPOs) across PAT to PROD environments, ensuring robust version control through AGPM Server.","Configured DNS, DHCP, network adapter settings, and optimized UCS drivers for enhanced server performance.","Executed capacity adjustments involving vCPU, vRAM, and disk expansions using Terraform, vCenter, Veritas Volume Manager, and UCS Manager.","Oversaw the installation and configuration of Remote Desktop Session Hosts (RDSH) and RD Licensing servers according to user requirements.","Orchestrated the decommissioning of physical and virtual servers, including UCS server removal and storage release.","Enabled SCOM monitoring for newly-provisioned servers and validated post-deployment monitoring rules.","Resolved Blue Screen of Death (BSOD) issues through WinDbg and memory dump analysis, contributing to root cause analysis and subsequent permanent fixes.","Authored and maintained Standard Operating Procedures (SOPs), conducted knowledge transfer sessions, and mentored junior engineers."],"workDescription":"Responsible for administering Windows Servers, managing Group Policy Objects, configuring network settings, executing capacity adjustments, decommissioning servers, and ensuring security compliance. Accountable for incident resolution, problem management, and knowledge transfer.","achievements":["Enhanced server security posture through the implementation of CIS\/NIST-aligned security baselines.","Streamlined infrastructure provisioning through the utilization of Terraform, vCenter, Veritas Volume Manager and UCS Manager.","Improved server monitoring capabilities through SCOM integration and validation of post-deployment monitoring rules."],"location":"Bengaluru","visible":null},{"organization":"Wipro Technologies","role":"Application Management","startDate":"Jun 2013","endDate":"Aug 2015","workDone":["Delivered proactive and reactive support for US Bank customers within a globally distributed infrastructure.","Monitored and managed critical banking applications and servers using enterprise-grade tools including Gomez, Wily Introscope, Netcool, CA Workload Center, and HP Sitescope.","Ensured service uptime and performance by meticulously tracking alerts, proactively managing thresholds, and rapidly initiating remediation steps upon failures.","Resolved failed transactions through comprehensive analysis of Audit and CC logs, coordinating with relevant stakeholders to minimize downtime.","Troubleshooted Autosys job failures on Windows servers utilizing CA Workload Automation tools, executing job reruns and performing root cause analysis.","Conducted real-time infrastructure monitoring and alarming resolution for network devices and server endpoints.","Investigated data network faults in both LAN\/WAN environments using diagnostic tools and log analysis for efficient diagnosis and subsequent escalation.","Maximized system and network performance by implementing proactive resource tuning and swift resolution of outages.","Analyzed IIS logs, syslogs, event viewer data, and performance metrics to effectively troubleshoot server and application issues.","Provided L2 support for applications and infrastructure utilizing tools such as Autosys, IIS logs, and syslog for detailed diagnostics.","Resolved user issues, escalated critical incidents requiring specialized attention, and ensured incidents were closed with meticulously documented Root Cause Analysis (RCA)."],"workDescription":"Responsible for providing proactive and reactive application support, monitoring system performance, troubleshooting issues, and ensuring high availability of banking applications across a global infrastructure. Accountable for incident resolution, root cause analysis, and collaboration with stakeholders to minimize downtime and resolve system anomalies.","achievements":["Successfully maintained high availability of critical banking applications, minimizing business impact from potential disruptions.","Improved incident resolution times by leveraging robust monitoring tools and techniques.","Contributed to infrastructure stability through proactive resource tuning and outage prevention."],"location":"Bengaluru","visible":null},{"organization":"Wipro Technologies","role":"Project Engineer - Server Administrator","startDate":"Mar 2013","endDate":"Jan 2019","workDone":["Delivered proactive and reactive assistance to UK Bank customers, ensuring adherence to guaranteed Service Level Agreements (SLAs).","Maintained infrastructure for UK Bank customers, encompassing client users and client applications.","Resolved problems and deployed security patches on both client machines and servers.","Troubleshooted and installed monthly failed patches on servers, utilizing Landesk, SCCM, and HPSA deployment solutions.","Addressed Windows Update issues, including analyzing WindowsUpdate.log, resetting update components, and resolving WUA\/WSUS synchronization errors.","Diagnosed and resolved Blue Screen of Death (BSOD) issues by analyzing memory dump files using WinDbg to pinpoint faulty drivers or kernel-level problems.","Addressed hardware issues for servers via Integrated Lights-Out (ILO) and Remote Desktop Protocol (RDP).","Utilized IIS logs, syslog data, and server commands to promptly identify failures within networks and servers.","Managed server memory dumps and addressed hardware-related troubleshooting steps.","Logged and resolved incidents and service requests according to pre-defined Service Level Agreements (SLAs).","Developed problem records to address recurring issues and documented root cause analyses (RCA).","Implemented and validated change requests through a formally structured Change Management process.","Coordinated with vendor teams via email and IBM Service Tool for effective hardware fixes.","Actively participated in service improvement plans and infrastructure stability initiatives to enhance performance."],"workDescription":"Charged with providing proactive and reactive support, maintaining infrastructure, resolving issues, implementing security measures, troubleshooting system errors, managing hardware, and coordinating with vendors to resolve hardware issues. Accountable for adhering to SLAs, documenting root cause analyses, implementing changes, and driving service improvement plans.","achievements":["Enhanced system stability by proactively identifying and resolving hardware and software issues, minimizing potential downtime.","Improved patch deployment efficiency through effective troubleshooting and issue resolution.","Contributed to service improvement initiatives aimed at enhancing overall infrastructure performance and reliability."],"location":"Bengaluru","visible":null}],"skills":[],"careerObjective":"Highly motivated IT professional offering 15+ years of progressive experience in Windows and VMware Infrastructure Management, System Administration, and Automation; seeking a Windows, VMware, UCS, and Terraform Administrator role at Infosys to leverage expertise in infrastructure provisioning and cloud platforms driving optimal system performance and stability.","projectDetails":[],"education":[{"institution":"Sree Narayana Guru College, Bharathiyar University","degree":"Bachelor of Science in Mathematics","startDate":"","endDate":"2012","location":"","visible":null}],"languages":[],"courses":null,"hobbies":[],"professionalTitle":"Server Administrator","professionalSummary":["Seasoned Server Administrator with 15+ years' experience in Windows \u0026 VMware infrastructure management, system administration, automation, and disaster recovery.","Expertise in Windows Server (2003-2022), VMware vSphere (ESXi, vRA), Cisco UCS Manager, and Terraform for infrastructure automation.","Proven ability in server hardening, performance tuning, and GPO management using AGPMC and CIS\/NIST-aligned security baselines.","Hands-on experience with capacity adjustments, including vCPU, vRAM, and disk expansions, utilizing Terraform, vCenter, and Veritas Volume Manager.","Skilled in incident resolution, problem management, and change implementation under the ITIL framework, contributing to improved service stability and reduced downtime.","Proficient in scripting and automation using PowerShell.","Experienced in supporting and troubleshooting diverse enterprise environments, including cloud platforms and L2 support roles.","Microsoft Certified Azure Administrator Associate (AZ-104) and ServiceNow Certified System Administrator."],"linkedinUrl":null,"achievements":[],"certification":[{"name":"Microsoft Certified: Azure Administrator Associate (AZ-104)","certificate":"","year":"","visible":null},{"name":"ServiceNow Certified System Administrator","certificate":"","year":"","visible":null},{"name":"ITIL Foundation (Change, Incident, and Problem Management)","certificate":"","year":"","visible":null}],"language":null,"portfolioLink":"","location":"Bengaluru, India","platformUrlsList":null,"payStatus":null,"softSkills":[{"skillName":"Communication","skillValue":"90","visible":null},{"skillName":"Problem-solving","skillValue":"90","visible":null},{"skillName":"Team Collaboration","skillValue":"80","visible":null},{"skillName":"Documentation","skillValue":"80","visible":null}],"technicalSkills":[{"skillName":"Windows Server","skillValue":"90","visible":null},{"skillName":"VMware vSphere","skillValue":"90","visible":null},{"skillName":"ESXi","skillValue":"90","visible":null},{"skillName":"Cisco UCS","skillValue":"80","visible":null},{"skillName":"Terraform","skillValue":"80","visible":null},{"skillName":"PowerShell","skillValue":"80","visible":null},{"skillName":"Active Directory","skillValue":"80","visible":null},{"skillName":"GPO","skillValue":"70","visible":null},{"skillName":"SCOM","skillValue":"70","visible":null},{"skillName":"DNS","skillValue":"70","visible":null}],"coreCompetencies":[{"skillName":"Infrastructure Management","skillValue":"90","visible":null},{"skillName":"System Administration","skillValue":"90","visible":null},{"skillName":"Automation","skillValue":"80","visible":null},{"skillName":"Disaster Recovery","skillValue":"80","visible":null},{"skillName":"Performance Tuning","skillValue":"80","visible":null},{"skillName":"Security Hardening","skillValue":"80","visible":null},{"skillName":"Incident Management","skillValue":"70","visible":null},{"skillName":"Change Management","skillValue":"70","visible":null},{"skillName":"Problem Management","skillValue":"70","visible":null},{"skillName":"Capacity Planning","skillValue":"70","visible":null}],"addedDate":null,"countryCode":null,"additionalInfo":null},"templateId":7,"templateName":null,"status":"completed","addedDate":"2025-08-07","addedTs":"2025-08-07 18:00:55","modifiedDate":null,"coverLetter":null,"faqs":null,"roleQuestions":null,"companyInsight":null,"salaryData":null,"salaryTips":null,"dressConductTips":null,"resumeImageUrl":"https:\/\/st-content.myoutspark.com\/uploads\/images\/669d43.webp","resumePdfUrl":"https:\/\/st-content.myoutspark.com\/uploads\/pdf\/Aug25\/anishabraham_07Aug_1.pdf","userUploadedPdfUrl":null,"jobLocation":null,"improvementInResume":null,"bonusStatus":"pending","resumeLatestVersion":0,"tagId":null,"tagMsg":null,"payStatus":null,"resumeEditedDate":null,"resumeEditedTs":0,"countryCode":null,"plTxnReference":null,"planType":"free","category":"withJd","industry":null,"jobFunction":null,"currentJobRole":null,"currentExperience":0.0,"department":0.0,"bonusesDto":{"coverLetter":1,"roleQuestions":1,"faqs":1,"companyInsight":1,"salaryTips":1,"dressConductTips":1,"mistakesToAvoid":1,"templates":[0]},"age":0,"validatingTs":null,"submittedTs":null,"reviewingTs":null,"fileName":null,"resumeAddedTs":null,"profilePhotoAddedTs":null,"jdAddedTs":null,"profilePicName":null,"revisingCount":0,"idealTemplates":null,"mapSourceparams":null,"utmReqParams":null}];
-		var planDetails = {"planType":"free","referenceNo":"PLR0000390140","balanceResume":0,"totalResume":1,"usedResumes":1,"status":"closed","coverLetter":1,"roleQuestions":1,"faqs":1,"companyInsight":1,"salaryTips":1,"dressConductTips":1,"mistakesToAvoid":1,"templates":[0]};
-		const pyTemplateUrl = "https:\/\/pyapi.myoutspark.com";
-		const freePremiumResumeCount = 1;
-		const goldResumeCount = 0;
-		const totalResume = 1;
-		//const session = /*{"USER_SESSION_OBJECT":{"userId":165714,"email":null,"username":null,"firstName":null,"lastName":null,"profileImage":null,"fullName":"Anish","ssoId":"4f49c800-5bbf-403a-a3c9-1de3bffdf062","mobile":8884507437}}*/null;
-		var resumeIds = [];
-		var pageNo = 0;
-
-		var _silverObj =null;
-		var _freeObj ={"planType":"free","referenceNo":"PLR0000390140","balanceResume":0,"totalResume":1,"usedResumes":1,"status":"closed","coverLetter":1,"roleQuestions":1,"faqs":1,"companyInsight":1,"salaryTips":1,"dressConductTips":1,"mistakesToAvoid":1,"templates":[0]};
-		var _goldObj =null;
-		var _goldResumeDetails =null;
-
-		$(document).ready(function () {
-
-			/*
-			conditions need to check
-			*/
-			const queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			var tabId = urlParams.get('resumeId');
-			var std = urlParams.get('std');
-			var isBonus = urlParams.get('b');
-
-
-			var tabObj = null;
-			resumeList.forEach(resume => {
-				if (resume.status == "completed" || resume.status == "processing" || resume.status == "pending") {
-
-
-					if (tabId == resume.resumeId) {
-						if (resume.planType === 'gold' && resume.status === "pending") {
-							//do nothing, we are not showing pending status records
-						} else {
-							tabObj = {
-								"resumeId": resume.resumeId,
-								"addedTs": resume.addedTs,
-								"planType": resume.planType,
-
-							};
-
-						}
-
-					}
-
-				}
-			});
-
-
-
-			initializingTabs(tabObj);
-			if (window.goldFlowFlag && typeof appendLinkedInHacksTabIfNeeded === "function") {
-				appendLinkedInHacksTabIfNeeded();
-			}
-			if (tabObj != null && tabObj.planType != 'gold') {
-				//we need to this order only resume-" + tabObj.resumeId + "-tab click ---> then head tab
-				$("#resume-" + tabObj.resumeId + "-tab").click();
-				$("#silver-tab").click();
-
-			} else if (tabObj != null && tabObj.planType == 'gold') {
-				//we need to this order only resume-" + tabObj.resumeId + "-tab click ---> then head tab
-				$("#resume-" + tabObj.resumeId + "-tab").click();
-				$("#gold-tab").click();
-
-			} else {
-				if (_goldObj != null) {
-					$("#gold-tab").click();
-				} else {
-					$("#silver-tab").click();
-				}
-			}
-
-			// Ensure Gold inner tab content renders when Gold is selected by default
-			// (same sync runs from #gold-tab shown.bs.tab when switching from Silver).
-			setTimeout(function () {
-				if ($("#gold-tab").hasClass("active") && typeof window.syncGoldNestedDashboardTabs === "function") {
-					window.syncGoldNestedDashboardTabs();
-				}
-				if ($("#gold-tab").hasClass("active") && typeof prefetchLinkedInHacksIframe === "function") {
-					prefetchLinkedInHacksIframe();
-				}
-			}, 50);
-
-
-			if (std != null && std != "") {
-				$("#tempResumeReadyDivId").removeClass("d-none");
-
-				setTimeout(function () {
-					$("#tempResumeReadyDivId").addClass("d-none");
-				}, 5000)
-			}
-
-
-		})
-
-		setTimeout(function () {
-			$('.sucess_bar').hide()
-		}, 5000)
-
-		function closeNotification() {
-			$('.sucess_bar').hide()
-		}
-
-		function showResumePreview(resumeId, templateId) {
-			window.location.href = '/resume/preview?fragmentName=resumePreview&resumeId='
-				+ resumeId + "&templateId=" + templateId
-		}
-
-		function closeModal(modalId) {
-			console.log("closing modal...", modalId)
-			$('#' + modalId).modal('hide');
-		}
-
-		function closePreviewModal(modalId) {
-			console.log("closing modal...")
-			$('.' + modalId).modal('hide');
-		}
-
-
-
-
-		function changeTemplate(resumeId) {
-			window.localStorage.setItem("currentResumeId", resumeId)
-			window.location.href = '/templatesList/' + resumeId;
-		}
-
-		function logout() {
-			window.location.href = "/logout"
-		}
-
-		function openCoverLetter(rid, tid) {
-			window.location.href = '/bonus/view?b=CoverLetter&resumeId=' + rid
-		}
-
-		function openResumeFaq(rid, tid) {
-			window.location.href = '/bonus/view?b=ResumeFaqs&resumeId=' + rid
-		}
-
-		function openRoleQA(rid, tid) {
-			window.location.href = '/bonus/view?b=RoleQuestions&resumeId=' + rid
-		}
-
-		function openCompanyInSight(rid, tid) {
-			window.location.href = '/bonus/view?b=CompanyInsight&resumeId=' + rid
-		}
-
-		function openSalaryTips(rid, tid) {
-			window.location.href = '/bonus/view?b=SalaryTips&resumeId=' + rid
-		}
-
-		function openDressRightConduct(rid, tid) {
-			window.location.href = '/bonus/view?b=dressAndRightConduct&resumeId=' + rid
-		}
-
-		function openMistakeAvoid(rid, tid) {
-			window.location.href = '/bonus/view?b=mistakeToAvoid&resumeId=' + rid
-		}
-
-
-		function openPdfToDocModal(resumeId, templateId) {
-
-			if (planDetails.planType == 'free') {
-				window.location.href = "/payments/paymentPlan?q=download";
-			} else {
-				$("#pdfdocmodal").modal("show")
-				$("#pdfToDocRid").val(resumeId)
-				$("#pdfToDocTid").val(templateId)
-			}
-
-		}
-
-
-		function downloadPdf() {
-			let resumeId = $("#pdfToDocRid").val();
-			let templateId = $("#pdfToDocTid").val();
-
-			console.log(resumeId, " :::::::: ", templateId);
-
-
-			showLoader()
-			$.ajax({
-				url: '/api/resume/getPdfUrl?resumeId=' + resumeId + '&templateId=' + templateId,
-				method: 'GET',
-				contentType: 'application/json',
-				success: function (response) {
-					hideLoader()
-					$('#template-container' + templateId).removeClass("blurred")
-					$('.select_loader').hide()
-					if (response.status == 200) {
-						window.location.href = response.body.pdfUrl;
-					} else if (response.status == 406) {
-						window.location.href = "/payments/paymentPlan?q=download";
-					}
-
-				},
-				error: function (xhr, status, error) {
-					// Handle error
-					console.log('An error occurred: ' + error);
-				}
-			});
-
-
-		}
-
-
-		function downloadDocx() {
-			console.log("downloadDocx called with planType:", planDetails.planType, "templateId:", templateId);
-
-			// Check if user has Gold plan
-			if (planDetails.planType != 'gold') {
-				console.log("User does not have Gold plan, redirecting to payment");
-				hideLoader();
-				window.location.href = "/payments/paymentPlan?q=download";
-				return;
-			}
-
-			// Check if template is DOCX compatible
-			const docxCompatibleTemplates = [13, 6, 2, 19, 34, 41, 42, 7, 18, 35];
-			console.log("Checking template compatibility. Template ID:", templateId, "Compatible templates:", docxCompatibleTemplates);
-
-			if (!docxCompatibleTemplates.includes(parseInt(templateId))) {
-				console.log("Template is not DOCX compatible");
-				alert("This template does not support DOCX conversion. Please select a different template.");
-				hideLoader();
-				return;
-			}
-
-			console.log("Template is DOCX compatible, proceeding with download");
-			showLoader();
-
-			// For DOCX download, navigate directly to the download URL
-			// This will trigger the browser's file download mechanism
-			let downloadUrl = '/api/resume/getDocxUrl?resumeId=' + resumeId + '&templateId=' + templateId;
-
-			// Show loader and start download
-			console.log("Starting DOCX download...");
-
-			// Use a timeout to hide loader after download starts
-			// This gives user feedback that download is in progress
-			setTimeout(() => {
-				hideLoader();
-			}, 7000); // Hide loader after 7 seconds
-
-			window.location.href = downloadUrl;
-		}
-
-		function downloadDocxFile(resumeId, templateId) {
-			// For DOCX, we'll let the backend handle the URL generation
-			// The backend will get the dynamic HTML URL from the database
-			// and call the DOCX service with the correct URL
-			console.log("DOCX download initiated for resumeId:", resumeId, "templateId:", templateId);
-		}
-
-		function openPremiumModal() {
-			$('#premiumModal').show()
-		}
-		function closePremiumModal() {
-			$('#premiumModal').hide()
-		}
-
-		function showTutorial() {
-			$('#youtubeVideo').modal('show')
-		}
-		function hideTutorial() {
-			$('#youtubeVideo').modal('hide')
-		}
-
-
-
-		$('#youtubeVideo').on('hidden.bs.modal', function () {
-			var $this = $(this).find('iframe'),
-				tempSrc = $this.attr('src');
-			$this.attr('src', "");
-			$this.attr('src', tempSrc);
-		});
-
-
-	</script>
-
-	
-
-	<script type="module">
-		// Import the functions you need from the SDKs you need
-		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-		import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
-		// TODO: Add SDKs for Firebase products that you want to use
-		// https://firebase.google.com/docs/web/setup#available-libraries
-
-		// Your web app's Firebase configuration
-		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-		const firebaseConfig = {
-			apiKey: "AIzaSyCXnp4pS7SnWt9aHOyqjtoKBA0kfdi15mg",
-			authDomain: "jobprephq.firebaseapp.com",
-			projectId: "jobprephq",
-			storageBucket: "jobprephq.appspot.com",
-			messagingSenderId: "21004174852",
-			appId: "1:21004174852:web:e80d212e0af80171cd5751",
-			measurementId: "G-7GZW1B5K24"
-		};
-
-		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
-		const analytics = getAnalytics(app);
-	</script>
-	<footer>
-		<script type="text/javascript">
-			_linkedin_partner_id = "5557020";
-			window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-			window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-		</script>
-		<script type="text/javascript">
-			(function (l) {
-				if (!l) {
-					window.lintrk = function (a, b) { window.lintrk.q.push([a, b]) };
-					window.lintrk.q = []
-				}
-				var s = document.getElementsByTagName("script")[0];
-				var b = document.createElement("script");
-				b.type = "text/javascript"; b.async = true;
-				b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-				s.parentNode.insertBefore(b, s);
-			})(window.lintrk);
-		</script>
-		<noscript>
-			<img height="1" width="1" style="display:none;" alt=""
-				src="https://px.ads.linkedin.com/collect/?pid=5557020&fmt=gif" />
-		</noscript>
-	</footer>
-
-
-	<footer>
-		
-	<script type="text/javascript">
-		_linkedin_partner_id = "5557020";
-		window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-		window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-	</script>
-	<script type="text/javascript">
-		(function (l) {
-			if (!l) {
-				window.lintrk = function (a, b) { window.lintrk.q.push([a, b]) };
-				window.lintrk.q = []
-			}
-			var s = document.getElementsByTagName("script")[0];
-			var b = document.createElement("script");
-			b.type = "text/javascript"; b.async = true;
-			b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-			s.parentNode.insertBefore(b, s);
-		})(window.lintrk);
-	</script>
-	<noscript>
-		<img height="1" width="1" style="display:none;" alt=""
-			src="https://px.ads.linkedin.com/collect/?pid=5557020&fmt=gif" />
-	</noscript>
-
-	</footer>
-	<script>
-		function updateThumbContainerHeight() {
-			const screenWidth = $(window).width();
-			const ratio = (250 - 390) / (37 - 1440);
-			const height = 390 - ratio * (1440 - screenWidth);
-			$('.thumb-container').each(function () {
-				$(this).css('height', height);
-			});
-		}
-		$(window).on('load', function () {
-			updateThumbContainerHeight();
-			setTimeout(updateThumbContainerHeight, 1000);
-		});
-
-		$(window).on('resize', function () {
-			updateThumbContainerHeight()
-		});
-		// Observe DOM changes
-		const observer = new MutationObserver(function (mutations) {
-			mutations.forEach(function (mutation) {
-				if (mutation.addedNodes.length > 0) {
-					updateThumbContainerHeight();
-				}
-			});
-		});
-
-		const targetNode = document.body;
-		const observerConfig = { childList: true, subtree: true };
-		observer.observe(targetNode, observerConfig);
-	</script>
-	<!--Draft JS-->
-	<script>
-		// reference from https://www.digitalocean.com/community/tutorials/js-tabs
-
-		const tabs = document.querySelectorAll(".tab");
-
-		console.log("TABS :: ", tabs);
-
-		function tabify(tab) {
-			const tabList = tab.querySelector(".tab-list");
-
-			if (tabList) {
-				const tabItems = [...tabList.children];
-				const tabContent = tab.querySelector(".tab-content");
-				const tabContentItems = [...tabContent.children];
-				let tabIndex = 0;
-
-				tabIndex = tabItems.findIndex((item, index) => {
-					return [...item.classList].indexOf("is-active") > -1;
-				});
-
-				tabIndex > -1 ? (tabIndex = tabIndex) : (tabIndex = 0);
-
-				function setTab(index) {
-					console.log("INDEX   ::: ", index);
-
-					tabItems.forEach((x, index) => x.classList.remove("is-active"));
-					tabContentItems.forEach((x, index) => x.classList.remove("is-active"));
-
-					tabItems[index].classList.add("is-active");
-					tabContentItems[index].classList.add("is-active");
-				}
-
-				tabItems.forEach((x, index) =>
-					x.addEventListener("click", () => setTab(index))
-				);
-				setTab(tabIndex);
-				tab.querySelectorAll(".tab").forEach((tabContent) => tabify(tabContent));
-			}
-		}
-
-		tabs.forEach(tabify);
-
-		function viewFinalDraft() {
-			$("#new-resume").closest("li").hide();
-			$("#final-draft-resume").closest("li").show();
-			$("#final-draft-pane").show();
-			$("#final-draft-resume").click();
-
-			// Store the state in sessionStorage
-			sessionStorage.setItem("viewedFinalDraft", "true");
-		}
-
-		// On page load, check if the final draft was viewed
-		$(document).ready(function () {
-			if (sessionStorage.getItem("viewFinalDraft") === "true") {
-				viewFinalDraft();
-				sessionStorage.removeItem("viewFinalDraft");  // Clear the flag after execution
-			}
-		});
-
-		function viewFinalDraft() {
-			$("#new-resume").closest("li").hide();
-			$("#final-draft-resume").closest("li").show();
-			// $("#final-draft-pane").show();
-			$("#final-draft-resume").click();
-		}
-
-
-
-		function doClientApproval(obj) {
-			var resumeId = obj.getAttribute('data-resumeId');
-
-
-			var myHeaders = new Headers();
-			myHeaders.append("Content-Type", "application/json");
-
-			var raw = JSON.stringify({});
-
-			var requestOptions = {
-				method: "POST",
-				headers: myHeaders,
-				body: raw,
-			};
-
-			fetch("/userApprovalGoldResume?resumeId=" + resumeId, requestOptions) // Corrected '=' symbol here
-				.then((res) => {
-					if (res.redirected) {
-						// window.location.href = "/session-expired";
-						return;
-					}
-					return res.json();
-				})
-				.then((result) => {
-
-					if (result.status == 200) {
-						// Do something with the result
-						window.location.href = '/resume/dashboard?resumeId=' + resumeId;
-						// window.location.href = '/resume/dashboard';
-						//window.location.reload();
-
-					} else if (result.status == 304) {
-						window.location.href = '/resume/dashboard?resumeId=' + resumeId;
-					} else {
-
-						alert(result.message);
-					}
-				})
-				.catch((error) => console.log("error", error));
-		}
-
-
-		function doClientRevising(obj) {
-			var resumeId = obj.getAttribute('data-resumeId');
-
-
-			var myHeaders = new Headers();
-			myHeaders.append("Content-Type", "application/json");
-
-			var raw = JSON.stringify({});
-
-			var requestOptions = {
-				method: "POST",
-				headers: myHeaders,
-				body: raw,
-			};
-
-			fetch("/userRevisingGoldResume?resumeId=" + resumeId, requestOptions) // Corrected '=' symbol here
-				.then((res) => {
-					if (res.redirected) {
-						// window.location.href = "/session-expired";
-						return;
-					}
-					return res.json();
-				})
-				.then((result) => {
-
-					if (result.status == 200) {
-						$("#iNeedToSpeakToResumeTeam").prop("disabled", true);
-						$("#msgFor_i_need_id").show();
-					} else if (result.status == 304) {
-						window.location.href = '/resume/dashboard?resumeId=' + resumeId;
-					} else {
-						alert(result.message);
-					}
-				})
-				.catch((error) => console.log("error", error));
-		}
-
-
-
-		function shareDetailes() {
-			window.localStorage.removeItem("resumeId");
-			window.location.href = "/gold/upload-resume"
-		}
-
-		function editGoldResume(resumeId) {
-			window.localStorage.setItem("resumeId", resumeId)
-			window.location.href = "/gold/upload-resume"
-		}
-
-		function doRedirectToEditResume(obj) {
-			var resumeId = obj.getAttribute('data-resumeId');
-			var templateId = obj.getAttribute('data-templateId');
-			window.location.href = "/edit/resume?rid=" + resumeId + "&tid=" + templateId;
-
-
-		}
-
-
-		function doRedirectToFeedbackResume(obj) {
-			var resumeId = obj.getAttribute('data-resumeId');
-			var templateId = obj.getAttribute('data-templateId');
-			window.location.href = "/gold/resume/feedback?resumeId=" + resumeId + "&templateId=" + templateId;
-
-
-		}
-
-	</script>
-	<!--End Draft JS-->
-	<script src="/tabs-scroll/tabs-scroll.js"></script>
-	<!-- <h1 th:text="${tabObj}"></h1> -->
 </body>
-
 </html>
